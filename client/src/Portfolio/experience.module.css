@@ -1,0 +1,49 @@
+.section{
+    height: 100vh;
+    background-color: #8e8c7f;
+    position: relative;
+}
+
+.text{
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0px;
+    color: #FEFAE0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.1s ease-in-out;
+}
+
+.cardGrid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    vertical-align: top;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.projectCard{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.projectImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cardGrid > div:not(.text) {
+    aspect-ratio: unset;
+    height: 100%;
+}

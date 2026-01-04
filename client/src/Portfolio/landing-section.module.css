@@ -1,0 +1,33 @@
+.textButton{
+    position: absolute;
+    font-family: 'lora';
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 40px;
+    transition: color 0.15s ease-in-out;
+}
+
+.textButton:hover{
+    cursor: pointer;
+    color: #8e8c7f;
+    
+}
+
+.section{
+    height: 100vh;
+    position: relative;
+    font-weight: 400px;
+    margin: 0px;
+    padding: 40px 0 0 40px;
+    box-sizing: border-box;
+}
+
+.title{
+    font-family: 'lora';
+    font-size: 40px;
+    font-weight: 400px;
+}
+
+.title:hover{
+    cursor:default;
+}

@@ -1,0 +1,114 @@
+.section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.title{
+    margin: 40px 0px 60px 40px;
+    font-size: 40px;
+}
+
+
+.wrapper{
+    display: flex;
+    height: 50%;
+    margin: 0px 40px 0px 40px;
+    
+}
+
+.textInfo{
+    display: flex;
+    width: 60%;
+}
+
+.bioParagraph {
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    font-size: 15px;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    width: 40%;
+
+}
+
+.image img{
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 15px;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.contactSection{
+    margin-top: auto;
+}
+
+.contact{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 0px 40px 40px 40px;
+}
+
+.contactWrapper{
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 50%;
+    
+}
+
+.contactElem{
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.contactElem img {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.blogButton{
+    font-size: 30px;
+    margin-top: 8px;
+    display: flex;
+    align-items: end;
+}
+
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.contactElem:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}

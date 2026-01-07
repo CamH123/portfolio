@@ -1,0 +1,137 @@
+/* Header */
+.header{
+    height: 67px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0F0F0E;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+}
+
+.navButton{
+    color: #FEFAE0;
+    font-family: 'Lora';
+    background-color: transparent;
+    border: none;
+    margin: 30px;
+    font-size: 30px;
+    transition: ease 0.25s;
+}
+
+.navButton:hover{
+    color: darkgray;
+}
+
+/* Main Text Section */
+.mainSection{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 17px;
+    align-items: stretch;
+    min-height: calc(100vh - 67px);
+}
+
+/* main column */
+.mainColumn{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+/* category selector */
+.categorySelector{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.categoryButton{
+    font-family: 'Lora';
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    transition: ease 0.25s;
+}
+
+.categoryButton:hover{
+    color: darkgray;
+}
+
+.categorySelected{
+    text-decoration: underline;
+}
+
+.verticalLine{
+    background-color: #0F0F0E;
+    width: 1px;
+    flex: 0 0 1px;
+    align-self: stretch;
+}
+
+/* recColumn */
+.recColumn{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recTitle{
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding: 1px 6px 1px 6px;
+}
+
+/* Blog Card Component */
+.mainCard{
+    aspect-ratio: 3/1;
+    width: 80%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.sideCard{
+    font-size: 10px;
+}
+
+.textSection{
+    flex: 1;
+    margin: 20px;
+}
+
+.cardTitle{
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cardDate{
+    margin-bottom: 10px;
+    color: rgb(72, 72, 72);
+}
+
+.imageSection{
+    flex: 0 0 30%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageSection img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}

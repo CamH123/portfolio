@@ -22,29 +22,11 @@ function getWindowsHostIP(): string {
   return 'localhost';
 }
 
+// set db host
 const dbHost = process.env.DB_HOST || getWindowsHostIP();
 
-export interface ProjectResources {
-  documentation?: string;
-  poster?: string;
-  proposal?: string;
-  demo?: string;
-}
-
-export interface Project{
-    id: number;
-    slug: string;
-    title: string;
-    short_description: string | null;
-    full_description: string[] | null;
-    tech_stack: string[] | null;
-    github_url: string | null;
-    image_folder: string | null;
-    resources: ProjectResources | null;
-}
-
 // create connection pool
-const pool = new Pool({
+export const pool = new Pool({
     host: dbHost,
     port: Number(process.env.DB_PORT),
     database: process.env.DB_NAME,
@@ -52,23 +34,7 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
 });
 
-// get project by slug
-export async function getProjectBySlug(slug: string): Promise<Project| null>{
-    const query = 'SELECT * FROM projects WHERE slug = $1';
-
-    try{
-        const result = await pool.query(query, [slug]);
-        if (result.rows.length === 0){
-            return null;
-        }
-
-        return result.rows[0] as Project;
-    } catch (error){
-        console.error('Database error:', error);
-        throw error;
-    }
-}
-
+// checks connection
 pool.connect()
   .then(client => {
     console.log('✅ Database connected successfully!');

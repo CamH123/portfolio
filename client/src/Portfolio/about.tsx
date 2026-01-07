@@ -18,7 +18,7 @@ function About(){
     
     "Over the past couple of years, I've had the chance to apply these interests through industry and research experience at AbbVie and in the Mobility-X Lab, where I worked on full stack, machine learning, and applied research projects in fast paced, collaborative environments. I enjoy working on teams, learning from others, and contributing to projects where iteration and problem solving happen quickly.",
     
-    "Outside of tech, I'm a big foodie, not just when it comes to eating but also with trying to cook new recipes(sometimes with mixed results)! I like staying active through pickleball, tennis, hiking, and biking, and some of my favorite experiences have been spending time outdoors in places like Banff. I also love traveling to new cities and getting a feel for them through their local food and coffee scenes, whether that's exploring bakeries in Paris or hopping between coffee shops in NYC.",
+    "Outside of tech, I'm a big foodie, not just when it comes to eating but also with trying to cook new recipes (sometimes with mixed results)! I like staying active through pickleball, tennis, hiking, and biking, and some of my favorite experiences have been spending time outdoors in places like Banff. I also love traveling to new cities and trying out new bakeries and cafes!",
     
     "Thanks for checking out my portfolio and projects! If you're interested, feel free to take a look at my blog as well :)"
     ];

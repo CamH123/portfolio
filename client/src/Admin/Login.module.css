@@ -1,0 +1,119 @@
+.header{
+    width: 100%;
+    height: 67px;
+    background-color: #0F0F0E;
+    color: #FEFAE0;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    justify-content: space-between;
+}
+
+.headerText{
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: transparent;
+    border: none;
+    color: #FEFAE0;
+    font-size: 30px;
+    font-family: "lora";
+}
+.headerText:hover{
+    color: darkgray;
+    transition: ease 0.25s;
+}
+
+.loginPage{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 67px);
+    align-items: center;
+    justify-content: center;
+}
+
+.loginBox{
+    background-color: #0F0F0E;
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#FEFAE0;
+}
+
+.loginBoxTitle{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+
+
+.form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label{
+    color: #FEFAE0;
+    font-size: 16px;
+}
+
+.input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FEFAE0;
+    background-color: #1a1a19;
+    color: #FEFAE0;
+    font-size: 14px;
+}
+
+.input:focus{
+    outline: none;
+    border-color: #FEFAE0;
+    box-shadow: 0 0 0 2px rgba(254, 250, 224, 0.2);
+}
+
+.input:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error{
+    color: #ff6b6b;
+    font-size: 14px;
+    padding: 8px;
+    background-color: rgba(255, 107, 107, 0.1);
+    border-radius: 4px;
+}
+
+.submitButton{
+    padding: 12px;
+    background-color: #FEFAE0;
+    color: #0F0F0E;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: 'Lora';
+}
+
+.submitButton:hover:not(:disabled){
+    background-color: #e8e4cc;
+}
+
+.submitButton:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}

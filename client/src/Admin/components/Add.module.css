@@ -1,0 +1,231 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; /* Change from calc(100% - 40px) to 100% */
+    box-sizing: border-box; /* Ensure padding/border are included in dimensions */
+    overflow: hidden;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* top upload section */
+.uploadSection{
+    max-height: 20%;
+    min-height: 20%;
+    min-width: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 20%;
+    gap: 20px;
+}
+
+.uploadBubble{
+    height: 100%;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.uploadIcon{
+    height: 30px;
+    margin-right: 10px;
+}
+
+.uploadBubbleContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.uploadLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0; /* Prevents text from shrinking */
+}
+
+.uploadRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+    min-width: 0; /* Allows text truncation to work */
+}
+
+.filePreview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fileIcon {
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+}
+
+.fileName {
+    font-size: 14px;
+    color: #0F0F0E;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; /* Adjust based on your design */
+}
+
+.thumbnailPreviewContainer {
+    max-height: 80%; /* Won't exceed 80% of bubble height */
+    max-width: 150px; /* Set a reasonable max width */
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.thumbnailPreviewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+}
+
+/*bottom edit sections */
+.editSection{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    flex: 1;
+    min-height: 0; 
+    overflow: hidden;
+}
+
+.editor{
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.editorSelector{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.radioButton{
+    border: none;
+    font-family: "lora";
+    border-radius: 5px;
+    height: 100%;
+    width: 25%;
+    transition: ease 0.25s;
+}
+
+/* meta data editor */ 
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.label{
+    color: #0F0F0E;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+.input{
+    padding: 10px;
+    font-size: 14px;
+}
+
+.input:focus{
+    outline: none;
+    border-color: #000000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(254, 250, 224, 0.2);
+}
+
+.input:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.checkBoxSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.checkBoxSection .formGroup:first-child {
+    flex: 0 0 66%; 
+    max-width: 66%;
+}
+
+.checkBoxSection .formGroup:last-child {
+    flex: 0 0 34%; 
+    max-width: 34%;
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.submitButton{
+    border: none;
+    border-radius: 5px;
+    font-family: "lora";
+    color: #FEFAE0;
+    background-color: #0F0F0E;
+    height: 30px;
+}
+
+.submitButton:hover{
+    background-color: rgb(65, 65, 65);
+}

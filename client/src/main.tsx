@@ -7,6 +7,9 @@ import Portfolio from './Portfolio/portfolio.tsx'
 import {ProjectPage} from './Portfolio/project.tsx'
 import {Blog} from './Blog/Blog.tsx'
 import BlogArticle from './Blog/BlogArticle.tsx'
+import { Login } from './Admin/Login.tsx'
+import DashBoard from './Admin/Dashboard.tsx'
+import { ProtectedRoute } from './Admin/ProtectedRoute.tsx'
 
 export function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +34,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path = "experience/:experienceName" element = {<ProjectPage />} />
         <Route path = "blog" element = {<Blog />} />
         <Route path = "blog/:blogSlug" element = {<BlogArticle />} />
+        <Route path = "admin/login" element = {<Login />} />
+        <Route path = "admin/dashboard" element = {<ProtectedRoute> <DashBoard /> </ProtectedRoute>} />
+
       </Routes>
     </BrowserRouter>
   </StrictMode>,

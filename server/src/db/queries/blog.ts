@@ -190,3 +190,107 @@ export async function getPinnedBlogsInfo(num: number): Promise<BlogInfo[] | null
         throw error;
     }
 }
+
+// 5. Check if slug exists (used for admin adding)
+export async function checkSlugExists(slug: string): Promise<boolean>{
+    const query = `
+        SELECT blog_id
+        FROM blog
+        WHERE slug = $1
+        LIMIT 1
+    `;
+    try{
+        const result = await pool.query(query, [slug]);
+        return result.rows.length >0;
+    } catch(error){
+        console.error('Database error checking slug:', error);
+        throw error;
+    }
+}
+
+// 6. updates blog categories junction table
+export async function insertBlogCategories(blog_id: number, category_ids: number[], client?: any): Promise<void>{
+    // if no categories, nothing to insert
+    if (category_ids.length === 0){
+        return;
+    }
+
+    // builds dynamic values clause where $1 is the blog_id, $2+ is the category ids
+    const values = category_ids.map((_, index) => `($1, $${index+2})`).join(', ');
+    const query = `
+        INSERT INTO blog_category (blog_id, category_id)
+        VALUES ${values}
+    `;
+
+    try{
+        // client for transactions, otherwise pool
+        const executor = client || pool;
+        await executor.query(query, [blog_id, ...category_ids])
+    } catch(error){
+        console.error('Database error inserting blog categories:', error);
+        throw error;
+    }
+}
+
+// 7. Inserts blog object into the blog database
+export async function insertBlog(blogData: Omit<Blog, 'blog_id' | 'categories'>, client?: any): Promise<number> {
+    // unwrap components from blogData
+    const {
+        title,
+        subtitle,
+        slug,
+        date,
+        author,
+        content,
+        pin,
+        thumbnail_url
+    } = blogData;
+
+    const query = `
+        INSERT INTO BLOG (
+            title,
+            subtitle,
+            slug,
+            date,
+            author,
+            content,
+            pin,
+            thumbnail_url
+        )
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING blog_id
+    `;
+
+    try{
+        const executor = client || pool;
+        const result = await executor.query(query, [title, subtitle, slug, date, author, content, pin, thumbnail_url]);
+        return result.rows[0].blog_id;
+    } catch(error){
+        console.error('Database error inserting blog:', error);
+        throw error;
+    }
+}
+
+// 8. Transaction that ensures blog is added and categories are updated
+export async function createBlog(blogData: Omit<Blog, 'blog_id' | 'categories'>, category_ids: number[]): Promise<Blog> {
+    const client = await pool.connect();
+    try{
+        await client.query('BEGIN');
+        const blog_id = await insertBlog(blogData, client);
+        await insertBlogCategories(blog_id, category_ids, client);
+        await client.query('COMMIT');
+
+        const completeBlog = await getBlogBySlug(blogData.slug);
+
+        if(!completeBlog){
+            throw new Error('Failed to retrieve created blog');
+        }
+        return completeBlog;
+    } catch(error){
+        await client.query('ROLLBACK');
+        console.error('Database error creating blog:', error);
+        throw error;
+    } finally{
+        client.release();
+    }
+}

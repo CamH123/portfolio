@@ -1,6 +1,10 @@
 import express from "express";
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from "node:path";
+
+import cookieParser from 'cookie-parser';
+
 import { apiRouter } from "./routes";
 
 dotenv.config();
@@ -23,8 +27,17 @@ app.use(cors({
 // 2. Parse JSON request bodies
 app.use(express.json());
 
-// 3. Mount API routes
+// 3. Parse urlencoded bodies
+app.use(express.urlencoded());
+
+// 4. Parse cookies
+app.use(cookieParser()); 
+
+// 5. Mount API routes
 app.use('/api', apiRouter);
+
+// 6. Mount static assets
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 // Start Server
 app.listen(PORT, ()=>{

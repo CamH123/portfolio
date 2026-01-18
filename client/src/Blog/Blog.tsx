@@ -100,6 +100,7 @@ export function Blog() {
         setPinnedArticles(returnedArticles.map((article: BlogInfo) => ({
           ...article,
           date: new Date(article.date),
+          thumbnail_url: `${API_URL}${article.thumbnail_url}`
         })));
       })
       .catch(error=>{
@@ -122,6 +123,7 @@ export function Blog() {
         setPrimaryArticles(returnedArticles.map((article: BlogInfo) => ({
           ...article,
           date: new Date(article.date),
+          thumbnail_url: `${API_URL}${article.thumbnail_url}`
         })));
       })
       .catch(error => {

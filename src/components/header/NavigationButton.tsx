@@ -5,7 +5,7 @@ type Props = {
 
 export default function NavigationButton({ sectionNumber, sectionTitle }: Props) {
   return (
-    <button>
+    <button className="text-sm">
       {String(sectionNumber).padStart(2, "0")} {sectionTitle}
     </button>
   );

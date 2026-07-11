@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { PT_Serif } from "next/font/google";
+import { Libertinus_Serif } from "next/font/google";
 import "./globals.css";
 
-const ptSerif = PT_Serif({
+const libertinusSerif = Libertinus_Serif({
   variable: "--font-pt-serif",
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ptSerif.variable} h-full antialiased`}
+      className={`${libertinusSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

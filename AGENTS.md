@@ -11,3 +11,6 @@ Don't add new styling or features that I didn't ask for. Only implement code tha
 
 <!-- General Insturctions -->
 Ask questions until you are certain of my instructions and our visions for the code aligns. Furthermore, don't code unless given explicit permission to do so. Keep comments very concise and only use the when necessary to expalin complicated/confusing code/logic. The code should be primarly self documenting. 
+
+<!-- Magazine Page Sizing -->
+Each magazine page is rendered inside a `@container` wrapper (see Magazine.tsx) sized to that page's own box. Inside a page component (e.g. Cover.tsx), size text and elements with `cqw` units (e.g. `text-[9cqw]`) rather than `rem`/`px`, so pages scale off their own dimensions instead of the viewport. Content outside the magazine pages (Header, page.tsx layout) isn't inside that container, so it should keep using rem-based Tailwind sizing as normal.

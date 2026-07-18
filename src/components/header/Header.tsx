@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <div className="flex flex-row justify-between items-end w-full px-6 pb-1 text-mag-white text-shadow-xs border-b border-mag-white">
       <div>
-        <h1>Cameron Huang</h1>
+        <h1 className="text-[clamp(1.5rem,2.5vw,2.5rem)]">Cameron Huang</h1>
       </div>
       <div className="flex flex-row gap-5">
         {sections.map((s) => (

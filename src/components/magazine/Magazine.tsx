@@ -1,5 +1,6 @@
 import Cover from "./pages/Cover"
 import About from "./pages/about/About"
+import AboutCollage from "./pages/about/AboutCollage"
 
 export default function Magazine() {
     return (
@@ -12,7 +13,7 @@ export default function Magazine() {
 
                 {/* Right page */}
                 <div className="@container h-full max-h-full w-auto aspect-1/1.25 overflow-hidden">
-                    
+                    <AboutCollage pageNumber={2} side="right"/>
                 </div>
             </div>
         </div>

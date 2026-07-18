@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Cover() {
     return (
-        <div className="relative h-full w-full overflow-hidden bg-stone-100 shadow-lg">
+        <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <Image
                 src="/pages/cover/suits1.jpg"
                 alt="Cover background"

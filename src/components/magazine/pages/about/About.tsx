@@ -6,7 +6,7 @@ const bio = `Hi, my name is Cameron Huang! I am a student at Rice University stu
 
 export default function About({ pageNumber, side }: PageProps) {
     return (
-        <div className="relative h-full w-full overflow-hidden bg-stone-100 shadow-lg">
+        <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-6">
                 <div>
                     <p className="text-[8cqw] leading-none">01 &nbsp; about</p>
@@ -24,7 +24,7 @@ export default function About({ pageNumber, side }: PageProps) {
                     </div>
                 </div>
 
-                <div className="mt-auto">
+                <div className="mt-auto translate-y-[-3cqw]">
                     <p className="text-[2.6cqw] leading-snug">{bio}</p>
                 </div>
             </div>

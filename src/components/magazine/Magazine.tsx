@@ -1,7 +1,9 @@
 import Cover from "./pages/Cover"
 import About from "./pages/about/About"
 import ProjectContents from "./pages/projects/ProjectContents"
-import { ProjectItemData } from "./pages/types"
+import ProjectInfo from "./pages/projects/ProjectInfo"
+import ProjectMedia from "./pages/projects/ProjectMedia"
+import { ProjectInfoData, ProjectItemData, ProjectLink, ProjectMediaItem } from "./pages/types"
 
 const projectItems: ProjectItemData[] = [
     {
@@ -38,6 +40,40 @@ const projectItemsContinued: ProjectItemData[] = [
         image: "/pages/projects/project_placeholder.jpg",
     },
 ];
+const rover: ProjectInfoData = {
+    title: "Pressurized Rover Intelligence Platform",
+    image: "/pages/projects/project_placeholder.jpg",
+    caption: "Screens: Caption Here ...",
+    description:
+        "Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more!",
+};
+
+
+const roverMediaItems: ProjectMediaItem[] = [
+    {
+        image: "/pages/projects/project_placeholder.jpg",
+        caption: "Navigation Screen Caption",
+    },
+    {
+        image: "/pages/projects/project_placeholder.jpg",
+        caption: "Telemetry Screen Caption",
+    },
+    {
+        image: "/pages/projects/project_placeholder.jpg",
+        caption: "Team Group Photo",
+    },
+];
+
+const roverLinks: ProjectLink[] = [
+    { label: "Github", href: "#" },
+    { label: "Proposal", href: "#" },
+    { label: "CDR", href: "#" },
+    { label: "SDR", href: "#" },
+    { label: "Exit Pitch", href: "#" },
+    { label: "Exit Pitch Presentation", href: "#" },
+];
+
+
 
 export default function Magazine() {
     return (
@@ -45,12 +81,12 @@ export default function Magazine() {
             <div className="flex h-full max-h-full items-stretch justify-center p-4">
                 {/* Left page */}
                 <div className="@container h-full max-h-full w-auto aspect-1/1.25">
-                    <ProjectContents pageNumber={3} items={projectItems}/>
+                    <ProjectInfo pageNumber={3} data={rover}/>
                 </div>
 
                 {/* Right page */}
                 <div className="@container h-full max-h-full w-auto aspect-1/1.25 overflow-hidden">
-                    <ProjectContents pageNumber={4} items={projectItemsContinued} showTitle={false}/>
+                    <ProjectMedia pageNumber={4} items={roverMediaItems} links={roverLinks}/>
                 </div>
             </div>
         </div>

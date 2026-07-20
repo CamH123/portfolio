@@ -1,4 +1,15 @@
 export interface PageProps {
     pageNumber: number;
-    side: "left" | "right";
+}
+
+export interface ProjectItemData {
+    pageRange: string;
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+export interface ProjectContentsProps extends PageProps {
+    items: ProjectItemData[];
+    showTitle?: boolean;
 }

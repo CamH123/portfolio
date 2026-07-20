@@ -6,10 +6,10 @@ const columns = [
     { files: ["3_1.jpg", "3_2.JPG", "3_3.jpg", "3_4.jpg"], grow: "flex-[169]" },
 ];
 
-export default function AboutCollage({ pageNumber, side }: PageProps) {
+export default function AboutCollage({ pageNumber }: PageProps) {
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
-            <div className="flex h-full w-full items-center justify-center p-6">
+            <div className="flex h-full w-full items-center justify-center p-7">
                 <div className="flex h-[93%] w-full gap-[2cqw]">
                     {columns.map(({ files, grow }, i) => (
                         <div key={i} className={`flex ${grow} flex-col justify-between`}>
@@ -27,8 +27,8 @@ export default function AboutCollage({ pageNumber, side }: PageProps) {
                 </div>
             </div>
 
-            <div className={`absolute bottom-[2cqw] ${side === "left" ? "left-[2cqw]" : "right-[2cqw]"}`}>
-                <p className="text-[2cqw] leading-none">{pageNumber}</p>
+            <div className={`absolute bottom-[3cqw] ${pageNumber % 2 === 1 ? "left-[3cqw]" : "right-[3cqw]"}`}>
+                <p className="text-[2.5cqw] leading-none">{pageNumber}</p>
             </div>
         </div>
     );

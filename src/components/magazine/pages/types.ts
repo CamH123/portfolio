@@ -9,23 +9,25 @@ export interface ProjectItemData {
     image: string;
 }
 
-export interface ProjectContentsProps extends PageProps {
+export interface ChapterIndexProps extends PageProps {
+    chapterNumber: string;
+    chapterName: string;
     items: ProjectItemData[];
     showTitle?: boolean;
 }
 
-export interface ProjectInfoData {
+export interface NarrativeData {
     title: string;
     image: string;
     caption: string;
     description: string;
 }
 
-export interface ProjectInfoProps extends PageProps {
-    data: ProjectInfoData;
+export interface NarrativeProps extends PageProps {
+    data: NarrativeData;
 }
 
-export interface ProjectMediaItem {
+export interface MediaItem {
     image: string;
     caption: string;
 }
@@ -35,7 +37,7 @@ export interface ProjectLink {
     href: string;
 }
 
-export interface ProjectMediaProps extends PageProps {
-    items: ProjectMediaItem[];
+export interface MediaProps extends PageProps {
+    items: MediaItem[];
     links: ProjectLink[];
 }

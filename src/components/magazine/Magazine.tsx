@@ -1,9 +1,9 @@
 import Cover from "./pages/Cover"
 import About from "./pages/about/About"
-import ProjectContents from "./pages/projects/ProjectContents"
-import ProjectInfo from "./pages/projects/ProjectInfo"
-import ProjectMedia from "./pages/projects/ProjectMedia"
-import { ProjectInfoData, ProjectItemData, ProjectLink, ProjectMediaItem } from "./pages/types"
+import ChapterIndex from "./pages/chapter-index/ChapterIndex"
+import Narrative from "./pages/feature/Narrative"
+import Media from "./pages/feature/Media"
+import { NarrativeData, ProjectItemData, ProjectLink, MediaItem } from "./pages/types"
 
 const projectItems: ProjectItemData[] = [
     {
@@ -40,7 +40,43 @@ const projectItemsContinued: ProjectItemData[] = [
         image: "/pages/projects/project_placeholder.jpg",
     },
 ];
-const rover: ProjectInfoData = {
+
+const experienceItems: ProjectItemData[] = [
+    {
+        pageRange: "5 — 6",
+        title: "Software Developer Internship",
+        subtitle: "AT&T - 2026",
+        image: "/pages/projects/project_placeholder.jpg",
+    },
+    {
+        pageRange: "7 — 8",
+        title: "Software Developer Internship",
+        subtitle: "AbbVie - 2025",
+        image: "/pages/projects/project_placeholder.jpg",
+    },
+];
+
+const experienceItemsContinued: ProjectItemData[] = [
+    {
+        pageRange: "9 — 10",
+        title: "Data Engineering Internship",
+        subtitle: "AbbVie - 2026",
+        image: "/pages/projects/project_placeholder.jpg",
+    },
+    {
+        pageRange: "11 — 12",
+        title: "Club President",
+        subtitle: "Rice AR/VR Club",
+        image: "/pages/projects/project_placeholder.jpg",
+    },
+    {
+        pageRange: "13 — 14",
+        title: "Simulations Lead",
+        subtitle: "Rice Robotics Club - Martian Rover Team",
+        image: "/pages/projects/project_placeholder.jpg",
+    },
+];
+const rover: NarrativeData = {
     title: "Pressurized Rover Intelligence Platform",
     image: "/pages/projects/project_placeholder.jpg",
     caption: "Screens: Caption Here ...",
@@ -49,7 +85,7 @@ const rover: ProjectInfoData = {
 };
 
 
-const roverMediaItems: ProjectMediaItem[] = [
+const roverMediaItems: MediaItem[] = [
     {
         image: "/pages/projects/project_placeholder.jpg",
         caption: "Navigation Screen Caption",
@@ -81,12 +117,14 @@ export default function Magazine() {
             <div className="flex h-full max-h-full items-stretch justify-center p-4">
                 {/* Left page */}
                 <div className="@container h-full max-h-full w-auto aspect-1/1.25">
-                    <ProjectInfo pageNumber={3} data={rover}/>
+                    {/* <ChapterIndex pageNumber={3} chapterNumber="03" chapterName="projects" items={projectItems} /> */}
+                    <ChapterIndex pageNumber={1} chapterNumber="02" chapterName="experience" items={experienceItems} />
                 </div>
 
                 {/* Right page */}
                 <div className="@container h-full max-h-full w-auto aspect-1/1.25 overflow-hidden">
-                    <ProjectMedia pageNumber={4} items={roverMediaItems} links={roverLinks}/>
+                    {/* <ChapterIndex pageNumber={4} chapterNumber="03" chapterName="projects" items={projectItemsContinued} showTitle={false} /> */}
+                    <ChapterIndex pageNumber={2} chapterNumber="02" chapterName="experience" items={experienceItemsContinued} showTitle={false} />
                 </div>
             </div>
         </div>

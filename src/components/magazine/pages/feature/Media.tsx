@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ProjectMediaProps } from "../types";
+import { MediaProps } from "../types";
 
-export default function ProjectMedia({ pageNumber, items, links }: ProjectMediaProps) {
+export default function Media({ pageNumber, items, links }: MediaProps) {
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-7">

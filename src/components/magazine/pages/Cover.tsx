@@ -31,16 +31,19 @@ export default function Cover() {
                                 01 &nbsp;&nbsp; About
                             </p>
                             <p className="text-[2.6cqw] leading-none text-mag-white">
-                                02 &nbsp;&nbsp; Projects
+                                02 &nbsp;&nbsp; Experience
                             </p>
                             <p className="text-[2.6cqw] leading-none text-mag-white">
-                                03 &nbsp;&nbsp; Experience
+                                03 &nbsp;&nbsp; Projects
                             </p>
                             <p className="text-[2.6cqw] leading-none text-mag-white">
-                                04 &nbsp;&nbsp; Contact
+                                04 &nbsp;&nbsp; Skills
                             </p>
                             <p className="text-[2.6cqw] leading-none text-mag-white">
-                                05 &nbsp;&nbsp; Bonus
+                                05 &nbsp;&nbsp; Contact
+                            </p>
+                            <p className="text-[2.6cqw] leading-none text-mag-white">
+                                06 &nbsp;&nbsp; Bonus
                             </p>
                         </div>
 

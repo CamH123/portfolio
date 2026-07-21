@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { ProjectItemData } from "../types";
 
-interface ProjectContentItemProps {
+interface ChapterIndexItemProps {
     data: ProjectItemData;
 }
 
-export default function ProjectContentItem({ data }: ProjectContentItemProps) {
+export default function ChapterIndexItem({ data }: ChapterIndexItemProps) {
     const { pageRange, title, subtitle, image } = data;
 
     return (
@@ -20,7 +20,7 @@ export default function ProjectContentItem({ data }: ProjectContentItemProps) {
                 </div>
 
                 <p className="mt-[2.5cqw] text-[3.2cqw] leading-none">{title}</p>
-                <p className="mt-[0.5cqw] text-[2cqw] leading-none">{subtitle}</p>
+                <p className="mt-[0.5cqw] text-[2.1cqw] leading-none">{subtitle}</p>
             </div>
         </div>
     );

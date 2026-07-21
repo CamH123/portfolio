@@ -1,15 +1,19 @@
-import { ProjectContentsProps } from "../types";
-import ProjectContentItem from "./ProjectContentItem";
+import { ChapterIndexProps } from "../types";
+import ChapterIndexItem from "./ChapterIndexItem";
 
-export default function ProjectContents({ pageNumber, items, showTitle = true }: ProjectContentsProps) {
+export default function ChapterIndex({ pageNumber, chapterNumber, chapterName, items, showTitle = true }: ChapterIndexProps) {
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-7">
-                {showTitle && <p className="mb-[8cqw] text-[10cqw] leading-none">02 &nbsp;projects</p>}
+                {showTitle && (
+                    <p className="mb-[8cqw] text-[10cqw] leading-none">
+                        {chapterNumber} &nbsp;{chapterName}
+                    </p>
+                )}
 
                 <div className="flex flex-1 flex-col justify-around">
                     {items.map((item, i) => (
-                        <ProjectContentItem key={i} data={item} />
+                        <ChapterIndexItem key={i} data={item} />
                     ))}
                 </div>
             </div>

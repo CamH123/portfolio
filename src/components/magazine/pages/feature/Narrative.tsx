@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ProjectInfoProps } from "../types";
+import { NarrativeProps } from "../types";
 
-export default function ProjectInfo({ pageNumber, data }: ProjectInfoProps) {
+export default function Narrative({ pageNumber, data }: NarrativeProps) {
     const { title, image, caption, description } = data;
 
     return (

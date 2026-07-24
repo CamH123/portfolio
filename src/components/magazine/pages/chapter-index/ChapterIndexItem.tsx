@@ -10,7 +10,7 @@ export default function ChapterIndexItem({ data }: ChapterIndexItemProps) {
 
     return (
         <div className="flex w-full">
-            <div className="w-[15%] pt-[1cqw]">
+            <div className="w-[15%] pt-[1cqw] text-center">
                 <p className="text-[2.6cqw] leading-none">{pageRange}</p>
             </div>
 

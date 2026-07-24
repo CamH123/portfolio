@@ -9,26 +9,38 @@ export default function Media({ pageNumber, items, links }: MediaProps) {
                     {items.map((item, i) => (
                         <div
                             key={i}
-                            className={`flex items-center justify-center gap-[4cqw] ${i === 1 ? "flex-row-reverse" : ""}`}
+                            className={`grid items-center gap-[4cqw] ${i === 1 ? "grid-cols-[40%_50%]" : "grid-cols-[50%_40%]"}`}
                         >
-                            <div className="relative aspect-3/2 w-[45%]">
-                                <Image src={item.image} alt={item.caption} fill className="object-cover" />
-                            </div>
-
-                            <p className="text-[2.6cqw] leading-none">{item.caption}</p>
+                            {i === 1 ? (
+                                <>
+                                    <p className="text-center text-[2.6cqw] leading-none">{item.caption}</p>
+                                    <div className="relative aspect-3/2 w-full">
+                                        <Image src={item.image} alt={item.caption} fill className="object-cover" />
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="relative aspect-3/2 w-full">
+                                        <Image src={item.image} alt={item.caption} fill className="object-cover" />
+                                    </div>
+                                    <p className="text-center text-[2.6cqw] leading-none">{item.caption}</p>
+                                </>
+                            )}
                         </div>
                     ))}
                 </div>
 
-                <p className="mt-[3cqw] text-center text-[2.2cqw] leading-none">
-                    <span className="underline">Links:</span>&nbsp;
-                    {links.map((link, i) => (
-                        <span key={link.href}>
-                            <a href={link.href}>{link.label}</a>
-                            {i < links.length - 1 && " | "}
-                        </span>
-                    ))}
-                </p>
+                {links && links.length > 0 && (
+                    <p className="mt-[3cqw] text-center text-[2.2cqw] leading-none">
+                        <span className="underline">Links:</span>&nbsp;
+                        {links.map((link, i) => (
+                            <span key={i}>
+                                <a href={link.href}>{link.label}</a>
+                                {i < links.length - 1 && " | "}
+                            </span>
+                        ))}
+                    </p>
+                )}
             </div>
 
             <div className={`absolute bottom-[3cqw] ${pageNumber % 2 === 1 ? "left-[3cqw]" : "right-[3cqw]"}`}>

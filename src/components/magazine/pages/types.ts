@@ -1,5 +1,21 @@
+import { ReactNode } from "react";
+
 export interface PageProps {
     pageNumber: number;
+}
+
+export interface Entity {
+    title: string;
+    subtitle: string;
+    image: string;
+    pageRange?: string;
+    detailPages?: ((pageNumber: number) => ReactNode)[];
+}
+
+export interface Chapter {
+    chapterNumber: string;
+    chapterName: string;
+    entityGroups: Entity[][];
 }
 
 export interface ProjectItemData {
@@ -39,5 +55,5 @@ export interface ProjectLink {
 
 export interface MediaProps extends PageProps {
     items: MediaItem[];
-    links: ProjectLink[];
+    links?: ProjectLink[];
 }

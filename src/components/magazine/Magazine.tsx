@@ -5,7 +5,7 @@ import { pages } from "./content"
 
 // spreadStart of -1 means the cover sits alone on the right, with nothing on the left.
 function getPage(index: number) {
-    return index >= 0 ? pages[index] : null
+    return index >= 0 && index < pages.length ? pages[index] : null
 }
 
 export default function Magazine() {
@@ -16,7 +16,7 @@ export default function Magazine() {
             if (e.key === "ArrowLeft") {
                 setSpreadStart((s) => Math.max(-1, s - 2))
             } else if (e.key === "ArrowRight") {
-                setSpreadStart((s) => Math.min(pages.length - 2, s + 2))
+                setSpreadStart((s) => Math.min(pages.length - 1, s + 2))
             }
         }
 

@@ -1,8 +1,11 @@
 import { ReactNode } from "react"
 import Cover from "./pages/Cover"
+import BackCover from "./pages/BackCover"
 import About from "./pages/about/About"
 import AboutCollage from "./pages/about/AboutCollage"
 import ChapterIndex from "./pages/chapter-index/ChapterIndex"
+import Skills from "./pages/skills/Skills"
+import Contact from "./pages/contact/Contact"
 import { Chapter, Entity, ProjectItemData } from "./pages/types"
 
 function formatPageRange(pageNumbers: number[]): string {
@@ -64,6 +67,18 @@ export function buildPages(chapters: Chapter[]): ReactNode[] {
             }
         }
     }
+
+    // 3. Add Skills page
+    pages.push(<Skills key="skills" pageNumber={pageNumber} />);
+    pageNumber++;
+
+    // 4. Add Contact page
+    pages.push(<Contact key="contact" pageNumber={pageNumber} />);
+    pageNumber++;
+
+    // 5. Add Back Cover
+    pages.push(<BackCover key="back-cover" pageNumber={pageNumber} />);
+    pageNumber++;
 
     return pages;
 }

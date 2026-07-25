@@ -13,9 +13,9 @@ export default function Cover() {
 
             <div className="absolute inset-0 bg-black/10" />
 
-            <div className="absolute left-2.5 top-1/2 h-[95%] w-0.5 -translate-y-1/2 border-l border-[#4E4E4E]" />
+            <div className="absolute left-[3.25cqw] top-1/2 h-[95%] w-0.5 -translate-y-1/2 border-l-[0.35cqw] border-[#4E4E4E]" />
 
-            <div className="absolute inset-0 p-5">
+            <div className="absolute inset-0 p-5 ml-0.75">
                 <div className="flex h-full w-full flex-col justify-between drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
                     <div className="self-start">
                         <p className="text-[10cqw] leading-none text-mag-white ">

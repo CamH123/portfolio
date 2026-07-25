@@ -1,0 +1,75 @@
+import Image from "next/image";
+import { PageProps } from "../types";
+
+export default function Contact({ pageNumber }: PageProps) {
+    return (
+        <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
+            <div className="flex h-full w-full flex-col p-7">
+                <p className="text-right text-[10cqw] leading-none">contact &nbsp;05</p>
+
+                <div className="mt-[6cqw] flex flex-col items-end gap-[4cqw]">
+                    <div className="text-right">
+                        <p className="text-[2.3cqw] uppercase tracking-wide text-mag-black/60 leading-none">Email</p>
+                        <a href="mailto:Cameron.h.1732@gmail.com" className="mt-[1cqw] block text-[3.1cqw] leading-snug">
+                            Cameron.h.1732@gmail.com
+                        </a>
+                    </div>
+
+                    <div className="text-right">
+                        <p className="text-[2.3cqw] uppercase tracking-wide text-mag-black/60 leading-none">Elsewhere</p>
+                        <a
+                            href="https://linkedin.com/in/cameronh123"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-[1cqw] block text-[3.1cqw] leading-none"
+                        >
+                            linkedin.com/in/cameronh123
+                        </a>
+                        <a
+                            href="https://github.com/CamH123"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-[0.6cqw] block text-[3.1cqw] leading-none"
+                        >
+                            github.com/CamH123
+                        </a>
+                        <a
+                            href="/pages/contact/cameron_huang_resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-[0.6cqw] block text-[3.1cqw] leading-none"
+                        >
+                            resume.pdf
+                        </a>
+                    </div>
+
+                    <div className="text-right">
+                        <p className="text-[2.3cqw] uppercase tracking-wide text-mag-black/60 leading-none">Based In</p>
+                        <p className="mt-[1cqw] text-[3.1cqw] leading-none">Chicago, IL &amp; Houston, TX</p>
+                        <p className="mt-[0.6cqw] text-[3.1cqw] leading-none">my time: 8:00am (CST)</p>
+                    </div>
+                </div>
+
+                <div className="mt-[12cqw] ml-[2cqw] flex flex-col gap-[3cqw]">
+                    <p className="text-[3.1cqw] leading-snug">feel free to reach out!</p>
+
+                    <div className="flex items-end gap-[3cqw]">
+                        <div className="relative aspect-2/3 w-[25%]">
+                            <Image
+                                src="/pages/contact/contact.jpg"
+                                alt="Contact, by Carl Sagan"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <p className="text-[3.1cqw] leading-snug">great book, would recommend :)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className={`absolute bottom-[3cqw] ${pageNumber % 2 === 1 ? "left-[3cqw]" : "right-[3cqw]"}`}>
+                <p className="text-[2.5cqw] leading-none">{pageNumber}</p>
+            </div>
+        </div>
+    );
+}

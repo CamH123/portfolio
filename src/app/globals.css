@@ -7,6 +7,8 @@
   --color-mag-blue: #5da9e9;
   --color-mag-orange: #fb7d22;
   --color-mag-black: #1e1e1e;
+  --color-mag-amber: #f6aa1c;
+  --color-mag-cerulean: #00A8D1;
 
   /* Custom Magazine Serif Font */
   --font-sans: var(--font-pt-serif);

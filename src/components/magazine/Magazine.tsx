@@ -4,14 +4,13 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import HTMLFlipBook from "react-pageflip"
 import PageFrame from "./PageFrame"
 import { pages } from "./content"
+import { useMagazine } from "./MagazineContext"
 
-const PAGE_ASPECT_RATIO = 1 / 1.25 // width / height, matches the design's page proportions
-const HEIGHT_SCALE = 1 // portion of the available height the magazine should occupy
-const WIDTH_SCALE = 0.8 // portion of the available width the magazine should occupy
+const PAGE_ASPECT_RATIO = 1 / 1.25 
+const HEIGHT_SCALE = 1 
+const WIDTH_SCALE = 0.8 
 
-// react-pageflip's own "stretch" sizing only reacts to available width, so it
-// overflows whenever the container is width-constrained. Measure the container
-// ourselves and feed it an exact fixed size that fits both width and height.
+
 function computeBookSize(containerWidth: number, containerHeight: number) {
     const availableWidth = containerWidth * WIDTH_SCALE
     const availableHeight = containerHeight * HEIGHT_SCALE
@@ -29,16 +28,13 @@ function computeBookSize(containerWidth: number, containerHeight: number) {
 
 export default function Magazine() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const book = useRef<any>(null)
+    const { bookRef, currentPage, setCurrentPage } = useMagazine()
     const [size, setSize] = useState<{ width: number; height: number } | null>(null)
-    const [startPage, setStartPage] = useState(0)
 
+    // Set book size on load
     useEffect(() => {
         const container = containerRef.current
         if (!container) return
-
-        // Fonts/images settling during load fire several resize events in a row;
-        // wait for them to stop before committing a size (each commit remounts the book).
         let timeout: ReturnType<typeof setTimeout>
         const observer = new ResizeObserver(([entry]) => {
             const { width, height } = entry.contentRect
@@ -56,28 +52,28 @@ export default function Magazine() {
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
             if (e.key === "ArrowLeft") {
-                book.current?.pageFlip().flipPrev()
+                bookRef.current?.pageFlip().flipPrev()
             } else if (e.key === "ArrowRight") {
-                book.current?.pageFlip().flipNext()
+                bookRef.current?.pageFlip().flipNext()
             }
         }
 
         window.addEventListener("keydown", handleKeyDown)
         return () => window.removeEventListener("keydown", handleKeyDown)
-    }, [])
+    }, [bookRef])
 
     // Remounting on resize (via key) resets to startPage, so track the current
     // page to carry it across remounts instead of jumping back to the cover.
     const handleFlip = useCallback((e: any) => {
-        setStartPage(e.data)
-    }, [])
+        setCurrentPage(e.data)
+    }, [setCurrentPage])
 
     return (
         <div ref={containerRef} className="flex h-full w-full items-center justify-center p-4">
             {size && (
                 <HTMLFlipBook
                     key={`${size.width}x${size.height}`}
-                    ref={book}
+                    ref={bookRef}
                     className=""
                     style={{}}
                     width={size.width}
@@ -87,7 +83,7 @@ export default function Magazine() {
                     maxWidth={0}
                     minHeight={0}
                     maxHeight={0}
-                    startPage={startPage}
+                    startPage={currentPage}
                     drawShadow
                     flippingTime={1000}
                     usePortrait
@@ -99,8 +95,9 @@ export default function Magazine() {
                     clickEventForward
                     useMouseEvents
                     swipeDistance={30}
-                    showPageCorners
+                    showPageCorners={false}
                     disableFlipByClick={false}
+                    renderOnlyPageLengthChange
                     onFlip={handleFlip}
                 >
                     {pages.map((page, i) => (

@@ -312,4 +312,4 @@ const projectsChapter: Chapter = {
 
 const chapters: Chapter[] = [experienceChapter, projectsChapter];
 
-export const pages = buildPages(chapters);
+export const { pages, sections } = buildPages(chapters);

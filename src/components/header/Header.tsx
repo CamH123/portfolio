@@ -1,4 +1,7 @@
+"use client";
+
 import NavigationButton from "./NavigationButton";
+import { useMagazine } from "../magazine/MagazineContext";
 
 const sections = [
   { number: 0, title: "cover" },
@@ -11,10 +14,14 @@ const sections = [
 ];
 
 export default function Header() {
+  const { flipToPage } = useMagazine();
+
   return (
     <div className="flex flex-row justify-between items-end w-full px-6 pb-1 text-mag-white text-shadow-xs border-b border-mag-white">
       <div>
-        <h1 className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-normal">Cameron Huang</h1>
+        <button onClick={() => flipToPage(0)}>
+          <h1 className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-normal">Cameron Huang</h1>
+        </button>
       </div>
       <div className="flex flex-row gap-5">
         {sections.map((s) => (

@@ -1,7 +1,32 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { PageProps } from "../types";
 
+function formatCentralTime(date: Date) {
+    return new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+    })
+        .format(date)
+        .toLowerCase()
+        .replace(" ", "");
+}
+
 export default function Contact({ pageNumber }: PageProps) {
+    // Starts null so server and client render the same markup, then fills in after mount.
+    const [centralTime, setCentralTime] = useState<string | null>(null);
+
+    useEffect(() => {
+        const update = () => setCentralTime(formatCentralTime(new Date()));
+        update();
+        const interval = setInterval(update, 30000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-7">
@@ -46,12 +71,11 @@ export default function Contact({ pageNumber }: PageProps) {
                     <div className="text-right">
                         <p className="text-[2.3cqw] uppercase tracking-wide text-mag-black/60 leading-none">Based In</p>
                         <p className="mt-[1cqw] text-[3.1cqw] leading-none">Chicago, IL &amp; Houston, TX</p>
-                        <p className="mt-[0.6cqw] text-[3.1cqw] leading-none">my time: 8:00am (CST)</p>
+                        <p className="mt-[0.6cqw] text-[3.1cqw] leading-none">my time: {centralTime ?? "--:--"} (CST)</p>
                     </div>
                 </div>
 
-                <div className="mt-[12cqw] ml-[2cqw] flex flex-col gap-[3cqw]">
-                    <p className="text-[3.1cqw] leading-snug">feel free to reach out!</p>
+                <div className="mt-auto ml-[2cqw] flex flex-col gap-[3cqw]">
 
                     <div className="flex items-end gap-[3cqw]">
                         <div className="relative aspect-2/3 w-[25%]">

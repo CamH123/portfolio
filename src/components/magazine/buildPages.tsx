@@ -6,6 +6,8 @@ import AboutCollage from "./pages/about/AboutCollage"
 import ChapterIndex from "./pages/chapter-index/ChapterIndex"
 import Skills from "./pages/skills/Skills"
 import Contact from "./pages/contact/Contact"
+import Bonus from "./pages/bonus/Bonus"
+import Bonus2 from "./pages/bonus/Bonus2"
 import { Chapter, Entity, ProjectItemData } from "./pages/types"
 
 function formatPageRange(pageNumbers: number[]): string {
@@ -91,9 +93,18 @@ export function buildPages(chapters: Chapter[]): { pages: ReactNode[]; sections:
     pageNumber++;
     sections.contact = { start: contactIndex, end: contactIndex };
 
-    // 5. Add Back Cover
+    // 5. Add Bonus section
+    const bonusIndex = pages.length;
+    pages.push(<Bonus key="bonus" pageNumber={pageNumber} />);
+    pageNumber++;
+    pages.push(<Bonus2 key="bonus-2" pageNumber={pageNumber} />);
+    pageNumber++;
+    sections.bonus = { start: bonusIndex, end: pages.length - 1 };
+
+    // 6. Add Back Cover
     pages.push(<BackCover key="back-cover" pageNumber={pageNumber} />);
     pageNumber++;
+    sections.bonus = { start: bonusIndex, end: pages.length - 1 };
 
     return { pages, sections };
 }

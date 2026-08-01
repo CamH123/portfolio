@@ -34,6 +34,7 @@ export interface ChapterIndexProps extends PageProps {
 
 export interface NarrativeData {
     title: string;
+    time?: string;
     image: string;
     caption: string;
     description: string;

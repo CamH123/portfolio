@@ -10,7 +10,7 @@ export default function BackCover({ pageNumber }: PageProps) {
             </p>
 
             <p className="absolute top-[95%] left-[5%] text-[2.3cqw] leading-none text-mag-white/70">
-                UI inspired by Kinfolk Magazine
+                UI inspired by Kinfolk Magazine - Designed in Figma - Coded with Claude's help
             </p>
 
         </div>

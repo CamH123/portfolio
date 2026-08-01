@@ -19,8 +19,8 @@ export default function ChapterIndexItem({ data }: ChapterIndexItemProps) {
                     <Image src={image} alt={title} fill className="object-cover" />
                 </div>
 
-                <p className="mt-[2.5cqw] text-[3.2cqw] leading-none">{title}</p>
-                <p className="mt-[0.5cqw] text-[2.1cqw] leading-none">{subtitle}</p>
+                <p className="mt-[1.5cqw] text-[3.2cqw] leading-none">{title}</p>
+                <p className="mt-[0.5cqw] text-[2.3cqw] leading-none italic">{subtitle}</p>
             </div>
         </div>
     );

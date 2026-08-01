@@ -2,14 +2,16 @@ import Image from "next/image";
 import { NarrativeProps } from "../types";
 
 export default function Narrative({ pageNumber, data }: NarrativeProps) {
-    const { title, image, caption, description } = data;
+    const { title, time, image, caption, description } = data;
 
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-7">
                 <p className="text-center text-[8cqw] leading-tight">{title}</p>
 
-                <div className="relative mt-[5cqw] aspect-3/2 w-[75%] self-center">
+                {time && <p className="text-center text-[3cqw] leading-tight">{time}</p>}
+
+                <div className="relative mt-[6cqw] aspect-3/2 w-[75%] self-center">
                     <Image src={image} alt={title} fill className="object-cover" />
                 </div>
 

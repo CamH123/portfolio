@@ -1,5 +1,41 @@
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { MediaProps } from "../types";
+
+const VIDEO_EXTENSIONS = [".mp4", ".webm", ".mov"];
+
+function MediaThumbnail({ src, alt }: { src: string; alt: string }) {
+    const isVideo = VIDEO_EXTENSIONS.some((ext) => src.toLowerCase().endsWith(ext));
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    // React's `muted` prop only sets the DOM property, not the server-rendered
+    // attribute, so the browser can evaluate autoplay before it's applied and
+    // silently block playback. Setting it imperatively guarantees it's muted first.
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+        video.muted = true;
+        video.play().catch(() => {});
+    }, [src]);
+
+    return (
+        <div className="relative aspect-3/2 w-full">
+            {isVideo ? (
+                <video
+                    ref={videoRef}
+                    src={src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-contain"
+                />
+            ) : (
+                <Image src={src} alt={alt} fill sizes="20vw" className="object-contain" />
+            )}
+        </div>
+    );
+}
 
 export default function Media({ pageNumber, items, links }: MediaProps) {
     return (
@@ -14,15 +50,11 @@ export default function Media({ pageNumber, items, links }: MediaProps) {
                             {i === 1 ? (
                                 <>
                                     <p className="text-center text-[2.6cqw] leading-none">{item.caption}</p>
-                                    <div className="relative aspect-3/2 w-full">
-                                        <Image src={item.image} alt={item.caption} fill className="object-cover" />
-                                    </div>
+                                    <MediaThumbnail src={item.image} alt={item.caption} />
                                 </>
                             ) : (
                                 <>
-                                    <div className="relative aspect-3/2 w-full">
-                                        <Image src={item.image} alt={item.caption} fill className="object-cover" />
-                                    </div>
+                                    <MediaThumbnail src={item.image} alt={item.caption} />
                                     <p className="text-center text-[2.6cqw] leading-none">{item.caption}</p>
                                 </>
                             )}

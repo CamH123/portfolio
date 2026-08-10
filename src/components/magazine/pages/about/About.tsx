@@ -2,7 +2,7 @@ import Image from "next/image";
 import { PageProps } from "../types";
 
 // Easy to update: edit this paragraph as the bio gets finalized.
-const bio = `Hi there! I'm Cameron, a student at Rice University studying computer science with a minor in data science. I love building systems that leverage AI and real world data to make actionable decisions. I've gotten to put that into practice through my internships at AT&T and AbbVie, where I've had the opportunity to work on large scale logistics platforms, AI automation tools, and database systems for medical devices. In my free time, I like building random projects, currently an Instagram bot that tracks the best food spots, driven mostly by an insatiable appetite and an even bigger desire to fill out my Beli. When I'm not doing that, I'm probably planning a camping or hiking trip with some friends, teaching myself piano, or binging comedy shows (currently watching Silicon Valley).`;
+const bio = `Hi there! I'm Cameron, a student at Rice University studying computer science with a minor in data science. I love building systems that use AI and real-world data to drive actionable decisions. I've gotten to put that into practice through my internships at AT&T and AbbVie, where I have worked on large-scale logistics platforms, AI automation tools, and database systems for medical devices. In my free time, I like building random side projects, trying out new coffee shops and restaurants, and somehow connecting the two by building a cafe recommender. Otherwise, I'm probably planning a camping or hiking trip with friends, teaching myself piano, or binging a new comedy show (currently watching Silicon Valley).`;
 
 export default function About({ pageNumber }: PageProps) {
     return (

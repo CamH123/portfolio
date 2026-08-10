@@ -7,7 +7,7 @@ export default function Home() {
 
 	return (
 		<div className="relative h-screen w-screen overflow-hidden">
-	  		<Image src="/desk/wood.jpg" alt="" fill className="object-cover" priority />
+	  		<Image src="/desk/wood.jpg" alt="" fill sizes="100vw" className="object-cover" priority />
 
 	  		<MagazineProvider>
 	  			<div className="relative z-10 flex flex-col h-full p-7.5 pt-1">

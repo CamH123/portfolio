@@ -7,6 +7,7 @@ export default function Cover() {
                 src="/pages/cover/suits1.jpg"
                 alt="Cover background"
                 fill
+                sizes="40vw"
                 priority
                 className="object-cover"
             />

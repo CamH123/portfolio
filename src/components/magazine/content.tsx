@@ -19,15 +19,15 @@ const atntNarrative: NarrativeData = {
 const atntMediaItems: MediaItem[] = [
     {
         image: "/pages/experience/att_1.jpg",
-        caption: "10 weeks, 133 commits, and 16 PRs later, our code is officially in production! Shoutout Jeffery, Prasit, and our mentor Dan!",
+        caption: "10 weeks, 133 commits, and 16 PRs later, our code is officially in production. Shoutout Jeffery, Prasit, and our mentor Dan!",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Still can’t believe we built an entire agentic workflow and presented it nationally in just 48 hours. Couldn’t have done it without Kriti, Sadhana, Kevin, and our mentor Afreen!",
+        image: "/pages/experience/att_2.jpg",
+        caption: "Still can’t believe we built an entire agentic workflow and presented it nationally in just 48 hours. Couldn’t have done it without the team, let's go Flowbreakers!",
     },
     {
         image: "/pages/experience/att_3.jpg",
-        caption: "Best part about working in this office? You were never more than a step away from the World Cup.",
+        caption: "Best part about working in the Dallas office? You were never more than a step away from the World Cup.",
     },
 ];
 
@@ -121,119 +121,93 @@ const experienceChapter: Chapter = {
 // ---- projects ----
 
 const suits2026Narrative: NarrativeData = {
-    title: "Pressurized Rover Intelligence Platform",
-    image: "/pages/projects/project_placeholder.jpg",
-    caption: "Screens: Caption Here ...",
+    title: "PR Intelligence Platform",
+    time: "NASA SUITS 2026",
+    image: "/pages/projects/suits2026/suits2026_0.jpg",
+    caption: "Moments before our first test night at the Johsnon Space Center!",
     description:
-        "Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more! Long paragraph covering what the project is, what my role is during it, any reflections i had during development, and more!",
+        "Developed for the NASA SUITS 2026 Challenge, our goal was to create an autonomous pressurized rover control interface to help astronauts navigate the lunar south pole and find a missing Lunar Terrain Vehicle (LTV). I ended up wearing a lot of hats: I owned the system architecture, shaped user workflows with our HF team, led project management, and took technical ownership of the autonomous navigation system. Technically, this project stretched me. I fine-tuned a YOLO model from scratch, built a streaming service, and architected a system that could handle multiple intensive AI processes and concurrent control systems at once. But the hardest lessons were about leadership. I was in charge of over 20 people, each with their own background and ideas about how things should get done. This project pushed me to lead without always having the answers, to trust others in their domains, and to communicate constantly so we stayed aligned throughout the year.",
 };
 
-const roverMediaItems: MediaItem[] = [
+const suits2026Media: MediaItem[] = [
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Navigation Screen Caption",
+        image: "/pages/projects/suits2026/auto_nav_demo.mp4",
+        caption: "Navigation Screen: A display that let's the pilot control the rover and engage autonomous navigation.",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Telemetry Screen Caption",
+        image: "/pages/projects/suits2026/telemetry_demo.mp4",
+        caption: "Telemetry Screen: An intutitive dashboard that highlights and alerts important health data.",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Team Group Photo",
+        image: "/pages/projects/suits2026/ltv_search_demo.mp4",
+        caption: "Map Screen: An advanced path planning application to help the pilot find the lost LTV.",
     },
 ];
 
-const roverLinks: ProjectLink[] = [
-    { label: "Github", href: "#" },
-    { label: "Proposal", href: "#" },
-    { label: "CDR", href: "#" },
-    { label: "SDR", href: "#" },
-    { label: "Exit Pitch", href: "#" },
-    { label: "Exit Pitch Presentation", href: "#" },
+const suits2026Links: ProjectLink[] = [
+    { label: "Github", href: "https://github.com/Rice-ARVR/OWL-SUITS-2026-PR" },
+    { label: "Proposal", href: "https://docs.google.com/document/d/1vViXCav1NrxgJCWB73lyFr7TjIqc36ObeJcpyedRY2I/edit?tab=t.0" },
+    { label: "Exit Pitch Slides", href: "https://docs.google.com/presentation/d/17pI6eu1O87Ero6XG_PJkbaEzfBmWmDGLCrxGnhLNep8/edit?usp=sharing" },
+    { label: "Exit Pitch Recording", href: "https://www.youtube.com/live/VIQ5LbNfwNY?t=8556&si=ZFugoQ2kFGSLxOyk" },
 ];
-
-const rover: Entity = {
-    title: suits2026Narrative.title,
-    subtitle: "NASA SUITS 2026",
-    image: "/pages/projects/project_placeholder.jpg",
-    detailPages: [
-        (pageNumber) => <Narrative key="rover-narrative" pageNumber={pageNumber} data={suits2026Narrative} />,
-        (pageNumber) => <Media key="rover-media" pageNumber={pageNumber} items={roverMediaItems} links={roverLinks} />,
-    ],
-};
 
 const suits2025Narrative: NarrativeData = {
-    title: "Augmented Reality Spacesuit Display",
-    image: "/pages/projects/project_placeholder.jpg",
-    caption: "Screens: Caption Here ...",
-    description: placeholderDescription,
+    title: "AR Spacesuit Interface",
+    time: "NASA SUITS 2025",
+    image: "/pages/projects/suits2025/suits2025_0.jpg",
+    caption: "The only way to beat Murphy's law is ... redundancy!",
+    description: "For the NASA SUITS 2025 Challenge, we developed an augmented reality interface to help astronauts perform extravehicular activities at the lunar south pole. This was my first time developing for the HoloLens 2, and AR as a platform in general. It was interesting to rethink how I approached interface design when moving from a 2D system to something spatial, and it taught me a lot about UI design and how it can be used to reduce cognitive load rather than add to it. For this project, I was the lead developer, owning both the high-performance server for streaming live telemetry data and the geological sampling notebook. Our project was selected as top 5 in the nation, and getting to test it at Johnson Space Center, get feedback directly from NASA engineers, and meet other students tackling the same problem in completely different ways was one of the highlights of the whole experience.",
 };
 
-const arDisplayMediaItems: MediaItem[] = [
+const suits2025Media: MediaItem[] = [
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Heads-Up Display Caption",
+        image: "/pages/projects/suits2025/suits_2025_geo.mp4",
+        caption: "A virtual notebook connected to the XRF scanner to help with geological sampling.",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Field Test Caption",
+        image: "/pages/projects/suits2025/suits2025_ingegg_demo.mp4",
+        caption: "Procedures to assist with ingress and egress.",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Team Photo Caption",
+        image: "/pages/projects/suits2025/16.jpg",
+        caption: "I think we were the smallest team selected!",
     },
 ];
 
-const arDisplayLinks: ProjectLink[] = [
-    { label: "Github", href: "#" },
-    { label: "Proposal", href: "#" },
+const suits2025Links: ProjectLink[] = [
+    { label: "Github", href: "https://github.com/OWL-SUITS-2025/Owl_SUITS_2025" },
+    { label: "Proposal", href: "https://docs.google.com/document/d/1PcB0ZTBY3s5H4OZfvU3oWCtm59bli4tEMxpLIZt2VuA/edit?usp=sharing" },
+    { label: "Exit Pitch Slides", href: "https://github.com/OWL-SUITS-2025/Owl_SUITS_2025/blob/main/content/NASA%20SUITS%20Exit%20Pitch%20May%202025.pdf" },
+    { label: "Exit Pitch Recording", href: "https://www.youtube.com/live/2fiBoE0x6wE?t=3849s" },
+    { label: "Poster", href: "https://github.com/OWL-SUITS-2025/Owl_SUITS_2025/blob/main/content/NASA%20SUITS%20Poster%20Spring%2025.pdf" },
 ];
-
-const arDisplay: Entity = {
-    title: suits2025Narrative.title,
-    subtitle: "NASA SUITS 2025",
-    image: "/pages/projects/project_placeholder.jpg",
-    detailPages: [
-        (pageNumber) => <Narrative key="ar-display-narrative" pageNumber={pageNumber} data={suits2025Narrative} />,
-        (pageNumber) => <Media key="ar-display-media" pageNumber={pageNumber} items={arDisplayMediaItems} links={arDisplayLinks} />,
-    ],
-};
 
 const pongAgentNarrative: NarrativeData = {
-    title: "Reinforcement Learning Pong Agent",
-    image: "/pages/projects/project_placeholder.jpg",
-    caption: "Screens: Caption Here ...",
-    description: placeholderDescription,
+    title: "RL Pong Agent",
+    time: "Psych 203 Final Project",
+    image: "/pages/projects/pong_late.mp4",
+    caption: "I felt like a proud dad when I saw my agent score its first point.",
+    description: "This is a project I wish I'd finished sooner. It all started freshman year, when I first met with a professor about my interest in AI and its use in transportation systems. He recommended I read Playing Atari with Deep Reinforcement Learning, highlighting the similarities between using AI to beat racing games and modern day autonomous transportation systems. I remember being so confused the first time I read the article, getting lost in all of the statistical and computational theory. It took until sophomore year for me to actually sit down and build it out, when Psych 203, Intro to Cognitive Science, gave me the perfect excuse with a final project that asked us to connect core concepts from the class to something of our own. I used cloud computing for training and got my first real hands-on experience working with environment systems, finally turning what I'd only read about into something I'd built myself. Then I pushed it further, overlaying attention heat maps from the AI system against our own brains to see how each one directs its focus.",
 };
 
-const pongAgentMediaItems: MediaItem[] = [
+const pongAgentMedia: MediaItem[] = [
     {
         image: "/pages/projects/project_placeholder.jpg",
-        caption: "Training Graph Caption",
+        caption: "At first, I was worried that the agent was never going to learn.",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Gameplay Caption",
+        image: "/pages/projects/pong_reward.png",
+        caption: "It was cool learning and compare RL's optimization of reward to loss in traditional ML",
     },
     {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Architecture Diagram Caption",
+        image: "/pages/projects/saliency_grid.png",
+        caption: "Saliency grid highlighting the CNN's 'attention'",
     },
 ];
 
 const pongAgentLinks: ProjectLink[] = [
     { label: "Github", href: "#" },
 ];
-
-const pongAgent: Entity = {
-    title: pongAgentNarrative.title,
-    subtitle: "Double DQN Architecture",
-    image: "/pages/projects/project_placeholder.jpg",
-    detailPages: [
-        (pageNumber) => <Narrative key="pong-agent-narrative" pageNumber={pageNumber} data={pongAgentNarrative} />,
-        (pageNumber) => <Media key="pong-agent-media" pageNumber={pageNumber} items={pongAgentMediaItems} links={pongAgentLinks} />,
-    ],
-};
 
 const roverSimulatorNarrative: NarrativeData = {
     title: "Rover Simulator",
@@ -242,7 +216,7 @@ const roverSimulatorNarrative: NarrativeData = {
     description: placeholderDescription,
 };
 
-const roverSimulatorMediaItems: MediaItem[] = [
+const roverSimulatorMedia: MediaItem[] = [
     {
         image: "/pages/projects/project_placeholder.jpg",
         caption: "Simulation Environment Caption",
@@ -261,16 +235,6 @@ const roverSimulatorLinks: ProjectLink[] = [
     { label: "Github", href: "#" },
 ];
 
-const roverSimulator: Entity = {
-    title: roverSimulatorNarrative.title,
-    subtitle: "Rice Robotics",
-    image: "/pages/projects/project_placeholder.jpg",
-    detailPages: [
-        (pageNumber) => <Narrative key="rover-simulator-narrative" pageNumber={pageNumber} data={roverSimulatorNarrative} />,
-        (pageNumber) => <Media key="rover-simulator-media" pageNumber={pageNumber} items={roverSimulatorMediaItems} links={roverSimulatorLinks} />,
-    ],
-};
-
 const sspNarrative: NarrativeData = {
     title: "Near Earth Asteroid Model",
     image: "/pages/projects/project_placeholder.jpg",
@@ -278,7 +242,7 @@ const sspNarrative: NarrativeData = {
     description: placeholderDescription,
 };
 
-const asteroidModelMediaItems: MediaItem[] = [
+const sspMedia: MediaItem[] = [
     {
         image: "/pages/projects/project_placeholder.jpg",
         caption: "Model Visualization Caption",
@@ -293,28 +257,67 @@ const asteroidModelMediaItems: MediaItem[] = [
     },
 ];
 
-const asteroidModelLinks: ProjectLink[] = [
+const sspLinks: ProjectLink[] = [
     { label: "Github", href: "#" },
     { label: "Report", href: "#" },
 ];
 
-const asteroidModel: Entity = {
-    title: sspNarrative.title,
-    subtitle: "Summer Science Program",
-    image: "/pages/projects/project_placeholder.jpg",
-    detailPages: [
-        (pageNumber) => <Narrative key="asteroid-model-narrative" pageNumber={pageNumber} data={sspNarrative} />,
-        (pageNumber) => <Media key="asteroid-model-media" pageNumber={pageNumber} items={asteroidModelMediaItems} links={asteroidModelLinks} />,
-    ],
-};
+
+const projectItems: Entity[] = [
+    {
+        title: "Pressurized Rover Intelligence Platform",
+        subtitle: "NASA SUITS 2026",
+        image: "/pages/projects/suits2026/auto_nav_demo.mp4",
+        detailPages: [
+            (pageNumber) => <Narrative key="suits2026-narrative" pageNumber={pageNumber} data={suits2026Narrative} />,
+            (pageNumber) => <Media key="suits2026-media" pageNumber={pageNumber} items={suits2026Media} links={suits2026Links} />,
+        ],
+    },
+    {
+        title: "Augmented Reality Spacesuit Display",
+        subtitle: "NASA SUITS 2025",
+        image: "/pages/projects/suits2025/suits_2025_geo.mp4",
+        detailPages: [
+            (pageNumber) => <Narrative key="suits2025-narrative" pageNumber={pageNumber} data={suits2025Narrative} />,
+            (pageNumber) => <Media key="suits2025-media" pageNumber={pageNumber} items={suits2025Media} links={suits2025Links} />,
+        ],
+    },
+];
+
+const projectItemsContinued: Entity[] = [
+    {
+        title: "Reinforcement Learning Pong Agent",
+        subtitle: "Pysch 203 Final",
+        image: "/pages/projects/pong_idx.mp4",
+        detailPages: [
+            (pageNumber) => <Narrative key="pong-agent-narrative" pageNumber={pageNumber} data={pongAgentNarrative} />,
+            (pageNumber) => <Media key="pong-agent-media" pageNumber={pageNumber} items={pongAgentMedia} links={pongAgentLinks} />,
+        ],
+    },
+    // {
+    //     title: "Rover Simulator",
+    //     subtitle: "Rice Robotics",
+    //     image: "/pages/projects/project_placeholder.jpg",
+    //     detailPages: [
+    //         (pageNumber) => <Narrative key="rover-simulator-narrative" pageNumber={pageNumber} data={roverSimulatorNarrative} />,
+    //         (pageNumber) => <Media key="rover-simulator-media" pageNumber={pageNumber} items={roverSimulatorMedia} links={roverSimulatorLinks} />,
+    //     ],
+    // },
+    {
+        title: "Near Earth Asteroid Model",
+        subtitle: "Summer Science Program 2023",
+        image: "/pages/projects/ssp_vid.mp4",
+        detailPages: [
+            (pageNumber) => <Narrative key="asteroid-model-narrative" pageNumber={pageNumber} data={sspNarrative} />,
+            (pageNumber) => <Media key="asteroid-model-media" pageNumber={pageNumber} items={sspMedia} links={sspLinks} />,
+        ],
+    },
+];
 
 const projectsChapter: Chapter = {
     chapterNumber: "03",
     chapterName: "projects",
-    entityGroups: [
-        [rover, arDisplay],
-        [pongAgent, roverSimulator, asteroidModel],
-    ],
+    entityGroups: [projectItems, projectItemsContinued],
 };
 
 const chapters: Chapter[] = [experienceChapter, projectsChapter];

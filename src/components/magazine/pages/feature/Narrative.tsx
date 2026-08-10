@@ -12,7 +12,7 @@ export default function Narrative({ pageNumber, data }: NarrativeProps) {
                 {time && <p className="text-center text-[3cqw] leading-tight">{time}</p>}
 
                 <div className="relative mt-[6cqw] aspect-3/2 w-[75%] self-center">
-                    <Image src={image} alt={title} fill className="object-cover" />
+                    <Image src={image} alt={title} fill sizes="30vw" className="object-cover" />
                 </div>
 
                 <p className="mt-[2cqw] text-center text-[2.2cqw] leading-none">{caption}</p>

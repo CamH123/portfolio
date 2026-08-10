@@ -87,7 +87,7 @@ export default function Contact({ pageNumber }: PageProps) {
                                 className="object-cover"
                             />
                         </div>
-                        <p className="text-[3.1cqw] leading-snug">great book, would recommend :)</p>
+                        <p className="ml-[2cqw] text-[3.1cqw] leading-snug">great book, would recommend :)</p>
                     </div>
                 </div>
             </div>

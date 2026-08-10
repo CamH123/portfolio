@@ -185,22 +185,22 @@ const suits2025Links: ProjectLink[] = [
 const pongAgentNarrative: NarrativeData = {
     title: "RL Pong Agent",
     time: "Psych 203 Final Project",
-    image: "/pages/projects/pong_late.mp4",
+    image: "/pages/projects/pong/pong_late.gif",
     caption: "I felt like a proud dad when I saw my agent score its first point.",
     description: "This is a project I wish I'd finished sooner. It all started freshman year, when I first met with a professor about my interest in AI and its use in transportation systems. He recommended I read Playing Atari with Deep Reinforcement Learning, highlighting the similarities between using AI to beat racing games and modern day autonomous transportation systems. I remember being so confused the first time I read the article, getting lost in all of the statistical and computational theory. It took until sophomore year for me to actually sit down and build it out, when Psych 203, Intro to Cognitive Science, gave me the perfect excuse with a final project that asked us to connect core concepts from the class to something of our own. I used cloud computing for training and got my first real hands-on experience working with environment systems, finally turning what I'd only read about into something I'd built myself. Then I pushed it further, overlaying attention heat maps from the AI system against our own brains to see how each one directs its focus.",
 };
 
 const pongAgentMedia: MediaItem[] = [
     {
-        image: "/pages/projects/project_placeholder.jpg",
+        image: "/pages/projects/pong/pong_early.gif",
         caption: "At first, I was worried that the agent was never going to learn.",
     },
     {
-        image: "/pages/projects/pong_reward.png",
+        image: "/pages/projects/pong/pong_reward.png",
         caption: "It was cool learning and compare RL's optimization of reward to loss in traditional ML",
     },
     {
-        image: "/pages/projects/saliency_grid.png",
+        image: "/pages/projects/pong/saliency_grid.png",
         caption: "Saliency grid highlighting the CNN's 'attention'",
     },
 ];
@@ -211,56 +211,58 @@ const pongAgentLinks: ProjectLink[] = [
 
 const roverSimulatorNarrative: NarrativeData = {
     title: "Rover Simulator",
-    image: "/pages/projects/project_placeholder.jpg",
-    caption: "Screens: Caption Here ...",
-    description: placeholderDescription,
+    time: "Rice Robotics - University Rover Challenge",
+    image: "/pages/projects/robotics/robotics_sim_demo.mp4",
+    caption: "It took a lot of finetuning to get the rover to drive like a real rover, but it was worth it.",
+    description: "This project completely changed how I think about robotics. I came in thinking mostly about individual algorithms, but quickly learned how much complexity comes from getting perception, controls, autonomy, simulation, and the physical robot to actually work together. Building the rover simulation threw me into robot modeling, physics engines, and more ROS headaches than I care to remember. I bounced between Gazebo, PyBullet, and eventually Genesis, constantly adapting as our needs changed. Along the way, the simulation became more than just a development environment: it helped us build and test our control and autonomous navigation algorithms while giving the mechanical team a way to test CAD designs before physically building them. More than anything, I came away understanding robotics as a systems problem, where every piece is only as useful as its ability to work with the rest.",
 };
 
-const roverSimulatorMedia: MediaItem[] = [
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Simulation Environment Caption",
-    },
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Rover Model Caption",
-    },
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Team Photo Caption",
-    },
-];
+// const roverSimulatorMedia: MediaItem[] = [
+//     {
+//         image: "/pages/projects/project_placeholder.jpg",
+//         caption: "Simulation Environment Caption",
+//     },
+//     {
+//         image: "/pages/projects/project_placeholder.jpg",
+//         caption: "Rover Model Caption",
+//     },
+//     {
+//         image: "/pages/projects/project_placeholder.jpg",
+//         caption: "Team Photo Caption",
+//     },
+// ];
 
-const roverSimulatorLinks: ProjectLink[] = [
-    { label: "Github", href: "#" },
-];
+// const roverSimulatorLinks: ProjectLink[] = [
+//     { label: "Github", href: "#" },
+// ];
 
 const sspNarrative: NarrativeData = {
     title: "Near Earth Asteroid Model",
-    image: "/pages/projects/project_placeholder.jpg",
-    caption: "Screens: Caption Here ...",
-    description: placeholderDescription,
+    time: "Summer Science Program 2023",
+    image: "/pages/projects/ssp2023/ssp_vid.mp4",
+    caption: "10 Million Year Orbital Simulation of NEA 1998 RO4",
+    description: "In high school, I couldn't decide whether I wanted to study computer science or astrophysics, so the Summer Science Program felt like the perfect intersection of both. Over the summer, I conducted computational astrophysics research to track and model a near-Earth asteroid, writing code to analyze real observational data and build the models and calculations we needed to understand its orbit. It was my first time seeing how code could turn messy real-world data into something meaningful, and that idea has stuck with me ever since. Just as importantly, being surrounded by people who were incredibly curious and ambitious pushed me to think bigger about what I could build and accomplish. Looking back, SSP shaped a lot of what I love about CS today: using computation and real-world data to understand problems that extend far beyond the computer itself.",
 };
 
-const sspMedia: MediaItem[] = [
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Model Visualization Caption",
-    },
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Data Plot Caption",
-    },
-    {
-        image: "/pages/projects/project_placeholder.jpg",
-        caption: "Team Photo Caption",
-    },
-];
+// const sspMedia: MediaItem[] = [
+//     {
+//         image: "/pages/projects/ssp2023/ssp_vid.mp4",
+//         caption: "Model Visualization Caption",
+//     },
+//     {
+//         image: "/pages/projects/ssp2023/ssp_1.jpg",
+//         caption: "Data Plot Caption",
+//     },
+//     {
+//         image: "/pages/projects/ssp2023/ssp_2.jpg",
+//         caption: "Team Photo Caption",
+//     },
+// ];
 
-const sspLinks: ProjectLink[] = [
-    { label: "Github", href: "#" },
-    { label: "Report", href: "#" },
-];
+// const sspLinks: ProjectLink[] = [
+//     { label: "Github", href: "#" },
+//     { label: "Report", href: "#" },
+// ];
 
 
 const projectItems: Entity[] = [
@@ -287,30 +289,24 @@ const projectItems: Entity[] = [
 const projectItemsContinued: Entity[] = [
     {
         title: "Reinforcement Learning Pong Agent",
-        subtitle: "Pysch 203 Final",
-        image: "/pages/projects/pong_idx.mp4",
+        subtitle: "Pysch 203 Final Project",
+        image: "/pages/projects/pong/pong_idx.mp4",
         detailPages: [
             (pageNumber) => <Narrative key="pong-agent-narrative" pageNumber={pageNumber} data={pongAgentNarrative} />,
             (pageNumber) => <Media key="pong-agent-media" pageNumber={pageNumber} items={pongAgentMedia} links={pongAgentLinks} />,
         ],
     },
-    // {
-    //     title: "Rover Simulator",
-    //     subtitle: "Rice Robotics",
-    //     image: "/pages/projects/project_placeholder.jpg",
-    //     detailPages: [
-    //         (pageNumber) => <Narrative key="rover-simulator-narrative" pageNumber={pageNumber} data={roverSimulatorNarrative} />,
-    //         (pageNumber) => <Media key="rover-simulator-media" pageNumber={pageNumber} items={roverSimulatorMedia} links={roverSimulatorLinks} />,
-    //     ],
-    // },
+    {
+        title: "Rover Simulator",
+        subtitle: "Rice Robotics - University Rover Challenge",
+        image: "/pages/projects/robotics/robotics_sim_demo.mp4",
+        detailPages: [(pageNumber) => <Narrative key="rover-simulator-narrative" pageNumber={pageNumber} data={roverSimulatorNarrative} />],
+    },
     {
         title: "Near Earth Asteroid Model",
         subtitle: "Summer Science Program 2023",
-        image: "/pages/projects/ssp_vid.mp4",
-        detailPages: [
-            (pageNumber) => <Narrative key="asteroid-model-narrative" pageNumber={pageNumber} data={sspNarrative} />,
-            (pageNumber) => <Media key="asteroid-model-media" pageNumber={pageNumber} items={sspMedia} links={sspLinks} />,
-        ],
+        image: "/pages/projects/ssp2023/ssp_vid.mp4",
+        detailPages: [(pageNumber) => <Narrative key="asteroid-model-narrative" pageNumber={pageNumber} data={sspNarrative} />],
     },
 ];
 

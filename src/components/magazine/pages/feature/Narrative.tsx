@@ -1,23 +1,13 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import { NarrativeProps } from "../types";
+import MagazineVideo from "../../MagazineVideo";
 
 const VIDEO_EXTENSIONS = [".mp4", ".webm", ".mov"];
 
 export default function Narrative({ pageNumber, data }: NarrativeProps) {
     const { title, time, image, caption, description } = data;
     const isVideo = VIDEO_EXTENSIONS.some((ext) => image.toLowerCase().endsWith(ext));
-    const shouldContainMedia = image.endsWith("/pong_late.gif") || image.endsWith("/ssp_vid.mp4");
-    const videoRef = useRef<HTMLVideoElement>(null);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        video.muted = true;
-        video.play().catch(() => {});
-    }, [image]);
-
+    const shouldContainMedia = image.endsWith("/pong_late.loop.mp4") || image.endsWith("/ssp_vid.mp4");
     return (
         <div className="relative h-full w-full overflow-hidden bg-mag-white shadow-lg">
             <div className="flex h-full w-full flex-col p-7">
@@ -27,17 +17,13 @@ export default function Narrative({ pageNumber, data }: NarrativeProps) {
 
                 <div className="relative mt-[6cqw] aspect-3/2 w-[75%] self-center">
                     {isVideo ? (
-                        <video
-                            ref={videoRef}
+                        <MagazineVideo
                             src={image}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                            pageNumber={pageNumber}
                             className={`absolute inset-0 h-full w-full ${shouldContainMedia ? "object-contain" : "object-cover"}`}
                         />
                     ) : (
-                        <Image src={image} alt={title} fill sizes="30vw" className={shouldContainMedia ? "object-contain" : "object-cover"} />
+                        <Image src={image} alt={title} fill sizes="(max-width: 39.99rem) 75vw, 30vw" className={shouldContainMedia ? "object-contain" : "object-cover"} />
                     )}
                 </div>
 

@@ -8,14 +8,16 @@ type Props = {
 };
 
 export default function NavigationButton({ sectionNumber, sectionTitle }: Props) {
-  const { currentPage, sections, flipToPage } = useMagazine();
+  const { currentPage, sections, flipToPage, isSinglePage } = useMagazine();
   const range = sections[sectionTitle];
-  // currentPage is one page of a two-page spread; its pair (same spread as Magazine.tsx's side logic) counts as active too.
   const spreadMate = currentPage % 2 === 0 ? currentPage - 1 : currentPage + 1;
+  const lastSectionEnd = Math.max(...Object.values(sections).map((section) => section.end));
+  const isBackCover = currentPage > lastSectionEnd;
   const isActive =
     !!range &&
     ((currentPage >= range.start && currentPage <= range.end) ||
-      (spreadMate >= range.start && spreadMate <= range.end));
+      (!isSinglePage && spreadMate >= range.start && spreadMate <= range.end) ||
+      (isBackCover && range.end === lastSectionEnd));
 
   const number = String(sectionNumber).padStart(2, "0");
 

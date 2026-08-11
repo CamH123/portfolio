@@ -185,14 +185,14 @@ const suits2025Links: ProjectLink[] = [
 const pongAgentNarrative: NarrativeData = {
     title: "RL Pong Agent",
     time: "Psych 203 Final Project",
-    image: "/pages/projects/pong/pong_late.gif",
+    image: "/pages/projects/pong/pong_late.loop.mp4",
     caption: "I felt like a proud dad when I saw my agent score its first point.",
     description: "This is a project I wish I'd finished sooner. It all started freshman year, when I first met with a professor about my interest in AI and its use in transportation systems. He recommended I read Playing Atari with Deep Reinforcement Learning, highlighting the similarities between using AI to beat racing games and modern day autonomous transportation systems. I remember being so confused the first time I read the article, getting lost in all of the statistical and computational theory. It took until sophomore year for me to actually sit down and build it out, when Psych 203, Intro to Cognitive Science, gave me the perfect excuse with a final project that asked us to connect core concepts from the class to something of our own. I used cloud computing for training and got my first real hands-on experience working with environment systems, finally turning what I'd only read about into something I'd built myself. Then I pushed it further, overlaying attention heat maps from the AI system against our own brains to see how each one directs its focus.",
 };
 
 const pongAgentMedia: MediaItem[] = [
     {
-        image: "/pages/projects/pong/pong_early.gif",
+        image: "/pages/projects/pong/pong_early.loop.mp4",
         caption: "At first, I was worried that the agent was never going to learn.",
     },
     {

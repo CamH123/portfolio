@@ -83,7 +83,7 @@ export default function Contact({ pageNumber }: PageProps) {
                                 src="/pages/contact/contact.jpg"
                                 alt="Contact, by Carl Sagan"
                                 fill
-                                sizes="10vw"
+                                sizes="(max-width: 39.99rem) 20vw, 10vw"
                                 className="object-cover"
                             />
                         </div>

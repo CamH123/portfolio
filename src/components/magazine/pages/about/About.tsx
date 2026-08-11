@@ -19,6 +19,7 @@ export default function About({ pageNumber }: PageProps) {
                             alt="Cameron Huang"
                             width={4032}
                             height={3024}
+                            sizes="(max-width: 39.99rem) 70vw, 28vw"
                             className="h-auto w-full"
                         />
                     </div>

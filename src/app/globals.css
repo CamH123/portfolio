@@ -85,3 +85,13 @@
   right: 0;
   background: linear-gradient(to left, rgb(25 29 25 / 0.18), transparent);
 }
+
+@media (max-width: 39.99rem) {
+  .magazine-book--portrait.stf__parent {
+    min-width: 0 !important;
+  }
+
+  .magazine-gutter {
+    display: none;
+  }
+}

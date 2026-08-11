@@ -13,7 +13,7 @@ export default function ChapterIndex({ pageNumber, chapterNumber, chapterName, i
 
                 <div className="flex flex-1 flex-col justify-around">
                     {items.map((item, i) => (
-                        <ChapterIndexItem key={i} data={item} />
+                        <ChapterIndexItem key={i} data={item} pageNumber={pageNumber} />
                     ))}
                 </div>
             </div>

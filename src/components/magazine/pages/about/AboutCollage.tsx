@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageProps } from "../types";
 
 const columns = [
@@ -5,6 +6,20 @@ const columns = [
     { files: ["2_1.JPG", "2_2.JPG", "2_3.jpg"], grow: "flex-[225]" },
     { files: ["3_1.jpg", "3_2.JPG", "3_3.jpg", "3_4.jpg"], grow: "flex-[169]" },
 ];
+
+const imageDimensions: Record<string, { width: number; height: number }> = {
+    "1_1.JPG": { width: 1536, height: 2048 },
+    "1_2.JPG": { width: 2048, height: 1536 },
+    "1_3.jpg": { width: 1332, height: 996 },
+    "1_4.jpg": { width: 4284, height: 5712 },
+    "2_1.JPG": { width: 2048, height: 1536 },
+    "2_2.JPG": { width: 1536, height: 2048 },
+    "2_3.jpg": { width: 4032, height: 3024 },
+    "3_1.jpg": { width: 4032, height: 3024 },
+    "3_2.JPG": { width: 2048, height: 1536 },
+    "3_3.jpg": { width: 3024, height: 4032 },
+    "3_4.jpg": { width: 4032, height: 3024 },
+};
 
 export default function AboutCollage({ pageNumber }: PageProps) {
     return (
@@ -14,12 +29,14 @@ export default function AboutCollage({ pageNumber }: PageProps) {
                     {columns.map(({ files, grow }, i) => (
                         <div key={i} className={`flex ${grow} flex-col justify-between`}>
                             {files.map((file) => (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
+                                <Image
                                     key={file}
                                     src={`/pages/about/${file}`}
                                     alt=""
-                                    className="w-full"
+                                    width={imageDimensions[file].width}
+                                    height={imageDimensions[file].height}
+                                    sizes="(max-width: 39.99rem) 34vw, 14vw"
+                                    className="h-auto w-full"
                                 />
                             ))}
                         </div>

@@ -6,20 +6,20 @@ import { MagazineProvider } from "../components/magazine/MagazineContext";
 export default function Home() {
 
 	return (
-		<div className="relative h-screen w-screen overflow-hidden">
-	  		<Image src="/desk/wood.jpg" alt="" fill sizes="100vw" className="object-cover" priority />
+		<div className="relative h-dvh w-full overflow-x-hidden sm:h-screen sm:overflow-hidden">
+			<Image src="/desk/wood.jpg" alt="" fill sizes="100vw" className="object-cover" priority />
 
-	  		<MagazineProvider>
-	  			<div className="relative z-10 flex flex-col h-full p-7.5 pt-1">
-					<div className="h-[15%] w-11/12 mx-auto flex items-center justify-center">
+			<MagazineProvider>
+				<div className="relative z-10 flex h-dvh flex-col p-4 sm:h-full sm:min-h-0 sm:p-7.5 sm:pt-1">
+					<div className="mx-auto flex w-full items-center justify-center sm:h-[15%] sm:w-11/12">
 						<Header />
 					</div>
 
-					<div className="flex-1 w-11/12 mx-auto flex items-center justify-center">
+					<div className="flex min-h-0 flex-1 items-center justify-center sm:mx-auto sm:w-11/12">
 						<Magazine />
 					</div>
-	  			</div>
-	  		</MagazineProvider>
+				</div>
+			</MagazineProvider>
 		</div>
   );
 }

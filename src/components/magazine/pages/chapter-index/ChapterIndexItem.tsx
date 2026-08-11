@@ -1,27 +1,17 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import { ProjectItemData } from "../types";
+import MagazineVideo from "../../MagazineVideo";
 
 const VIDEO_EXTENSIONS = [".mp4", ".webm", ".mov"];
 
 interface ChapterIndexItemProps {
     data: ProjectItemData;
+    pageNumber: number;
 }
 
-export default function ChapterIndexItem({ data }: ChapterIndexItemProps) {
+export default function ChapterIndexItem({ data, pageNumber }: ChapterIndexItemProps) {
     const { pageRange, title, subtitle, image } = data;
     const isVideo = VIDEO_EXTENSIONS.some((ext) => image.toLowerCase().endsWith(ext));
-    const videoRef = useRef<HTMLVideoElement>(null);
-
-    // React's `muted` prop only sets the DOM property, not the server-rendered
-    // attribute, so the browser can evaluate autoplay before it's applied and
-    // silently block playback. Setting it imperatively guarantees it's muted first.
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-        video.muted = true;
-        video.play().catch(() => {});
-    }, [image]);
 
     return (
         <div className="flex w-full">
@@ -32,17 +22,13 @@ export default function ChapterIndexItem({ data }: ChapterIndexItemProps) {
             <div className="flex flex-1 flex-col items-center">
                 <div className="relative aspect-3/2 w-[50%]">
                     {isVideo ? (
-                        <video
-                            ref={videoRef}
+                        <MagazineVideo
                             src={image}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                            pageNumber={pageNumber}
                             className="absolute inset-0 h-full w-full object-contain"
                         />
                     ) : (
-                        <Image src={image} alt={title} fill sizes="20vw" className="object-cover" />
+                        <Image src={image} alt={title} fill sizes="(max-width: 39.99rem) 50vw, 20vw" className="object-cover" />
                     )}
                 </div>
 

@@ -7,8 +7,8 @@ export default function Cover() {
                 src="/pages/cover/suits1.jpg"
                 alt="Cover background"
                 fill
-                sizes="40vw"
-                priority
+                sizes="(max-width: 39.99rem) 100vw, 40vw"
+                preload
                 className="object-cover"
             />
 

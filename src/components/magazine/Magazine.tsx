@@ -11,11 +11,11 @@ const HEIGHT_SCALE = 1
 const WIDTH_SCALE = 0.8 
 
 
-function computeBookSize(containerWidth: number, containerHeight: number) {
-    const availableWidth = containerWidth * WIDTH_SCALE
+function computeBookSize(containerWidth: number, containerHeight: number, isMobile: boolean) {
+    const availableWidth = containerWidth * (isMobile ? 1 : WIDTH_SCALE)
     const availableHeight = containerHeight * HEIGHT_SCALE
 
-    let pageWidth = availableWidth / 2
+    let pageWidth = isMobile ? availableWidth : availableWidth / 2
     let pageHeight = pageWidth / PAGE_ASPECT_RATIO
 
     if (pageHeight > availableHeight) {
@@ -28,10 +28,9 @@ function computeBookSize(containerWidth: number, containerHeight: number) {
 
 export default function Magazine() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { bookRef, currentPage, setCurrentPage } = useMagazine()
+    const { bookRef, currentPage, setCurrentPage, isSinglePage } = useMagazine()
     const [size, setSize] = useState<{ width: number; height: number } | null>(null)
 
-    // Set book size on load
     useEffect(() => {
         const container = containerRef.current
         if (!container) return
@@ -39,7 +38,14 @@ export default function Magazine() {
         const observer = new ResizeObserver(([entry]) => {
             const { width, height } = entry.contentRect
             clearTimeout(timeout)
-            timeout = setTimeout(() => setSize(computeBookSize(width, height)), 150)
+            if (width <= 0 || height <= 0) return
+
+            timeout = setTimeout(() => {
+                const nextSize = computeBookSize(width, height, isSinglePage)
+                if (nextSize.width > 0 && nextSize.height > 0) {
+                    setSize(nextSize)
+                }
+            }, 150)
         })
 
         observer.observe(container)
@@ -47,7 +53,7 @@ export default function Magazine() {
             clearTimeout(timeout)
             observer.disconnect()
         }
-    }, [])
+    }, [isSinglePage])
 
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
@@ -69,12 +75,12 @@ export default function Magazine() {
     }, [setCurrentPage])
 
     return (
-        <div ref={containerRef} className="flex h-full w-full items-center justify-center p-4">
+        <div ref={containerRef} className="flex h-full w-full items-center justify-center p-2 sm:p-4">
             {size && (
                 <HTMLFlipBook
-                    key={`${size.width}x${size.height}`}
+                    key={`${size.width}x${size.height}-${isSinglePage ? "portrait" : "landscape"}`}
                     ref={bookRef}
-                    className=""
+                    className={isSinglePage ? "magazine-book--portrait" : ""}
                     style={{}}
                     width={size.width}
                     height={size.height}

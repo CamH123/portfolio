@@ -1,11 +1,22 @@
 import { PageProps } from "../types";
 
-const columns = [
-    { files: ["1_1.jpg", "2_1.jpg", "3_1.jpg", "4_3.jpg"], grow: "flex-[85]", offset: "-translate-y-[8cqw]" },
-    { files: ["1_2.jpg", "2_3.jpg", "3_2.jpg", "4_1.jpg"], grow: "flex-[95]", offset: "translate-y-[0cqw]" },
-    { files: ["1_3.jpg", "2_5.jpg", "2_2.jpg", "4_4.jpg"], grow: "flex-[90]", offset: "-translate-y-[3cqw]" },
-    { files: ["1_5.jpg", "2_6.jpg", "3_6.jpg", "4_2.png"], grow: "flex-[85]", offset: "-translate-y-[6cqw]" },
-    { files: ["1_6.jpg", "3_4.jpg", "3_3.jpg", "4_5.png"], grow: "flex-[95]", offset: "-translate-y-[2cqw]" },
+const plans = [
+    { text: "build an instagram bot for food and cafe recs", alignment: "self-start pl-[5cqw]" },
+    { text: "learn chopin’s ballade no 2 on piano", alignment: "self-end pr-[3cqw]" },
+    { text: "finish reading the LOTR trilogy", alignment: "self-center" },
+    { text: "make a song on fruity loops", alignment: "self-start pl-[7cqw]" },
+    { text: "watch the bears win the superbowl", alignment: "self-end translate-y-[1cqw] pr-[10cqw]" },
+    { text: "visit california", alignment: "self-start" },
+    { text: "go backpacking", alignment: "self-start pl-[16cqw]" },
+    { text: "film a day in the life vlog", alignment: "self-center" },
+    { text: "run a half marathon", alignment: "self-end pr-[5cqw]" },
+    { text: "pick up the guitar", alignment: "self-start pl-[6cqw]" },
+    { text: "learn slight of hand magic", alignment: "self-end pr-[10cqw]" },
+    { text: "cook roast duck at home", alignment: "self-center" },
+    { text: "see a rocket launch", alignment: "self-start pl-[15cqw]" },
+    { text: "go to lollapalooza", alignment: "self-end translate-y-[1cqw] pr-[14cqw]" },
+    { text: "learn chess", alignment: "self-start pl-[3cqw]" },
+    { text: "solve the neetcode 250", alignment: "self-start translate-y-[1.5cqw] pl-[20cqw]" },
 ];
 
 export default function Bonus({ pageNumber }: PageProps) {
@@ -14,17 +25,14 @@ export default function Bonus({ pageNumber }: PageProps) {
             <div className="flex h-full w-full flex-col p-7">
                 <div className="flex items-baseline justify-between">
                     <p className="text-[10cqw] leading-none">06 &nbsp;bonus</p>
-                    <p className="text-[2.6cqw] leading-none">my good reads, letterboxd, and more :)</p>
                 </div>
 
-                <div className="mt-auto flex flex-1 items-end gap-[2cqw]">
-                    {columns.map(({ files, grow, offset }, i) => (
-                        <div key={i} className={`flex ${grow} flex-col gap-[1.2cqw] ${offset}`}>
-                            {files.map((file) => (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img key={file} src={`/pages/bonus/${file}`} alt="" className="w-full" />
-                            ))}
-                        </div>
+                <div className="mt-[7cqw] flex flex-1 flex-col justify-between pb-[8cqw]">
+                    <p className="text-[2.6cqw] leading-none">my current plans:</p>
+                    {plans.map(({ text, alignment }) => (
+                        <p key={text} className={`text-[2.6cqw] leading-none ${alignment}`}>
+                            {text}
+                        </p>
                     ))}
                 </div>
             </div>

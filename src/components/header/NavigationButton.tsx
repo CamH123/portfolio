@@ -22,7 +22,7 @@ export default function NavigationButton({ sectionNumber, sectionTitle }: Props)
   return (
     <button
       onClick={() => range && flipToPage(range.start)}
-      className="group grid text-[clamp(0.75rem,1vw,0.875rem)]"
+      className="group grid text-[clamp(0.875rem,1.2vw,1rem)]"
     >
       {/* invisible bold copy reserves the button's width so toggling real bold below never shifts layout */}
       <span className="invisible col-start-1 row-start-1 font-bold" aria-hidden="true">

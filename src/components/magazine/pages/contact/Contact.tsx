@@ -78,7 +78,7 @@ export default function Contact({ pageNumber }: PageProps) {
                 <div className="mt-auto ml-[2cqw] flex flex-col gap-[3cqw]">
 
                     <div className="flex items-end gap-[3cqw]">
-                        <div className="relative aspect-2/3 w-[25%]">
+                        <div className="relative aspect-2/3 w-[20%]">
                             <Image
                                 src="/pages/contact/contact.jpg"
                                 alt="Contact, by Carl Sagan"

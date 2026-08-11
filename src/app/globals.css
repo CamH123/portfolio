@@ -51,3 +51,37 @@
     line-height: 1.4;
   }
 }
+
+.magazine-gutter {
+  position: absolute;
+  inset-block: 0;
+  width: 6cqw;
+  pointer-events: none;
+}
+
+.magazine-gutter--left {
+  right: 0;
+  background: linear-gradient(to left, rgb(10 12 10 / 0.28), rgb(10 12 10 / 0.1) 38%, transparent 100%);
+}
+
+.magazine-gutter--right {
+  left: 0;
+  background: linear-gradient(to right, rgb(10 12 10 / 0.28), rgb(255 255 255 / 0.16) 34%, transparent 100%);
+}
+
+.magazine-page-edge {
+  position: absolute;
+  inset-block: 0;
+  width: 3cqw;
+  pointer-events: none;
+}
+
+.magazine-page-edge--left {
+  left: 0;
+  background: linear-gradient(to right, rgb(25 29 25 / 0.18), transparent);
+}
+
+.magazine-page-edge--right {
+  right: 0;
+  background: linear-gradient(to left, rgb(25 29 25 / 0.18), transparent);
+}

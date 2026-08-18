@@ -9,8 +9,8 @@ const libertinusSerif = Libertinus_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Cameron Huang",
+  title: "Cameron Huang",
+  description: "Cameron Huang Portfolio Website",
 };
 
 export default function RootLayout({

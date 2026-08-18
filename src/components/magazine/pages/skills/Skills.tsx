@@ -3,19 +3,15 @@ import { PageProps } from "../types";
 const skillCategories = [
     {
         label: "Languages",
-        items: ["Python", "Java", "TypeScript", "JavaScript", "Go", "C#", "C", "C++", "Haskell", "Bash", "HTML/CSS", "SQL", "R"],
+        items: ["Python", "Java", "TypeScript", "JavaScript", "Go", "C", "Haskell", "HTML/CSS", "SQL"],
     },
     {
-        label: "Web & Data",
-        items: ["React", "Node", "Express", "Next.js", "FastAPI", "Springboot", "Tailwind CSS", "PostgreSQL", "SQL Server", "MongoDB", "Redis"],
+        label: "Web Technologies",
+        items: ["React", "Node", "Express", "Next", "FastAPI", "Springboot", "Tailwind CSS", "PostgreSQL", "SQL Server", "MongoDB"],
     },
     {
         label: "AI Systems",
-        items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "YOLO", "LangChain", "LangGraph", "Ollama", "Hugging Face", "OpenAI API"],
-    },
-    {
-        label: "Robotics & Simulation",
-        items: ["ROS 2", "Gazebo", "PyBullet", "Genesis", "Unity", "RViz"],
+        items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "YOLO", "LangGraph", "Ollama", "Hugging Face"],
     },
     {
         label: "Tools & Cloud",

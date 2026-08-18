@@ -3,23 +3,27 @@ import { PageProps } from "../types";
 const skillCategories = [
     {
         label: "Languages",
-        items: ["Python", "Java", "TypeScript", "JavaScript", "Go", "C#", "C", "Haskell", "HTML/CSS", "SQL", "R"],
+        items: ["Python", "Java", "TypeScript", "JavaScript", "Go", "C#", "C", "C++", "Haskell", "Bash", "HTML/CSS", "SQL", "R"],
     },
     {
-        label: "Technology",
-        items: ["React", "Node", "Express", "Next.js", "FastAPI", "Tailwind CSS", "PostgreSQL", "SQL Server", "MongoDB"],
+        label: "Web & Data",
+        items: ["React", "Node", "Express", "Next.js", "FastAPI", "Springboot", "Tailwind CSS", "PostgreSQL", "SQL Server", "MongoDB", "Redis"],
     },
     {
-        label: "Tools",
-        items: ["Linux", "Git", "GitHub", "AWS", "Docker", "Jira", "Figma", "Claude Code"],
+        label: "AI Systems",
+        items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "YOLO", "LangChain", "LangGraph", "Ollama", "Hugging Face", "OpenAI API"],
     },
     {
-        label: "Machine Learning",
-        items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "YOLO", "LangChain", "Ollama"],
+        label: "Robotics & Simulation",
+        items: ["ROS 2", "Gazebo", "PyBullet", "Genesis", "Unity", "RViz"],
     },
     {
-        label: "Misc",
-        items: ["Making Balloon Animals", "Speed Running LinkedIn Games", "Taking Very Long Walks", "Drinking Coffee"],
+        label: "Tools & Cloud",
+        items: ["Linux", "Git", "GitHub", "AWS", "Docker", "Postman", "Jira", "Figma", "Claude Code"],
+    },
+    {
+        label: "Beyond Code",
+        items: ["Making Balloon Animals", "LinkedIn Games", "Taking Long Walks", "Drinking Coffee"],
     },
 ];
 

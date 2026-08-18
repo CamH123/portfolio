@@ -5,9 +5,6 @@ import { buildPages } from "./buildPages"
 
 // ---- experience ----
 
-const placeholderDescription =
-    "Long paragraph covering what the role involved, what my responsibilities were, any reflections i had during the experience, and more! Long paragraph covering what the role involved, what my responsibilities were, any reflections i had during the experience, and more! Long paragraph covering what the role involved, what my responsibilities were, any reflections i had during the experience, and more!";
-
 const atntNarrative: NarrativeData = {
     title: "AT&T SWE Internship",
     time: "Summer 2026",
@@ -19,15 +16,15 @@ const atntNarrative: NarrativeData = {
 const atntMediaItems: MediaItem[] = [
     {
         image: "/pages/experience/att_1.jpg",
-        caption: "10 weeks, 133 commits, and 16 PRs later, our code is officially in production. Shoutout Jeffery, Prasit, and our mentor Dan!",
+        caption: "10 weeks, 133 commits, and 16 PRs later, our code is officially in production.",
     },
     {
         image: "/pages/experience/att_2.jpg",
-        caption: "Still can’t believe we built an entire agentic workflow and presented it nationally in just 48 hours. Couldn’t have done it without the team, let's go Flowbreakers!",
+        caption: "Still can’t believe we built an entire agentic workflow in just 48 hours. Let's go team Flowbreakers!",
     },
     {
         image: "/pages/experience/att_3.jpg",
-        caption: "Best part about working in the Dallas office? You were never more than a step away from the World Cup.",
+        caption: "The best part about the Dallas office was that you were never more than a step away from the World Cup.",
     },
 ];
 
@@ -35,7 +32,7 @@ const abbvieSweNarrative: NarrativeData = {
     title: "AbbVie SWE Internship",
     time: "Summer 2025",
     image: "/pages/experience/abbv_2025.jpg",
-    caption: "Moments before the end of summer poster showcase!",
+    caption: "It was cool to see everyone's work come together!",
     description:
         "This summer showed me the power of AI and just how far its applications can reach across every industry. I spent the summer building ARMANI, an end-to-end agentic application that helps compliance managers automate their reviews of medical affairs content. Along the way, I learned a ton about LLMs, RAG, and what it actually takes to build a full-stack system from the ground up. One of the biggest lessons I took away was that the best automation doesn't replace people, but instead augments their workflow. That idea shaped how I approached the entire project. Some of the most enjoyable parts of my summer were sitting down with compliance managers, understanding their pain points firsthand, and refining the automation to solve real problems all while keeping them in the loop rather than cutting them out of it. Watching the app get deployed and reviewing feedback was incredibly rewarding, seeing something I built actually make a difference.",
 };
@@ -44,9 +41,9 @@ const abbvieDataSciNarrative: NarrativeData = {
     title: "AbbVie DS Internship",
     time: "Summer 2024",
     image: "/pages/experience/abbv_2024.jpg",
-    caption: "A small but mighty crew of chemist, mechanical, biomedical, and software engineers.",
+    caption: "A small but mighty crew of chemists, mechanical, biomedical, and software engineers.",
     description:
-        "Wow, I can't believe it all started here. This was my very first internship experience, and I learned more than I ever expected to. Over the summer, I built an infusion pump data ingestion and analysis platform, working across different data systems to bring it all together. The part of this summer I remember most is building software that actually connects to physical hardware, not something that lives purely in a virtual world. I came to really appreciate what it means to build software and data products in an environment that isn't traditionally software first. Throughout the ten weeks, I spent a lot of time in the lab, working and talking with engineers from all kinds of backgrounds to understand the infusion pump, the problems they were facing, and how to best build software around the test rigs and everything else that came with it. This was also the summer that first introduced me to ping pong, a sport that I've brought with me to every office since!",
+        "Wow, I can't believe it all started here. This was my very first internship experience, and I learned more than I ever expected to. Over the summer, I built an infusion pump data ingestion and analysis platform, working across different data systems to bring it all together. What I remember most was getting to sit on both sides of the tool I was building. In addition to developing the platform, I was also using it myself to dig through infusion pump flow rate test data, uncover patterns, and answer questions the team had been trying to understand. It was my first real glimpse into how software engineering and data science could work together, and it sparked my interest in building systems that use real-world data to solve real problems. Outside of the work, some of my favorite memories were going to a Cubs game with the team and discovering ping pong, a sport that I've somehow brought with me to every office since!",
 };
 
 const arvrNarrative: NarrativeData = {
@@ -54,7 +51,7 @@ const arvrNarrative: NarrativeData = {
     time: "Club President",
     image: "/pages/experience/arvr_0.jpg",
     caption: "Recruiting at the Rice Spring Club Fair.",
-    description: "Running this club has been one of the most formative experiences of my life. This was the first time I was truly in charge of a large organization, where my decisions had a direct impact on the club's trajectory. I learned about the difficulties of recruitment and retention, of balancing the goals of different members and teams, of building relationships with professors, local companies, and labs, of raising money, hosting workshops and events, and so much more. But every challenge came with a win just as rewarding, and watching the club grow because of it was one of the best feelings I've had. Being in this club truly taught me how to be a leader, something completely different from my experiences in high school, where coaches and teachers absorbed a lot of that burden. This is also the club that helped me create two of my favorite projects, built while competing in the NASA SUITS competition."
+    description: "Running this club has been one of the most formative experiences of my time at Rice. It was my first opportunity to truly shape the direction of a large organization, from growing our community and leading different project teams to building relationships with professors, local companies, and labs. Along the way, I learned that leadership is about much more than making decisions. It’s about bringing people together around a shared vision, creating opportunities for others to grow, and building something people genuinely want to be a part of. Watching the club grow has been one of the most rewarding parts of college, especially knowing how much I’ve grown alongside it. It also gave me the opportunity to build two of my favorite projects through the NASA SUITS competition, meet some of my closest friends and mentors, and make some of my favorite memories at Rice along the way. "
 };
 
 const roboticsNarrative: NarrativeData = {
@@ -62,7 +59,7 @@ const roboticsNarrative: NarrativeData = {
     time: "Mars Rover Simulations Lead",
     image: "/pages/experience/robotics.avif",
     caption: "Presenting our first prototype at the OEDK Engineering Showcase.",
-    description: "I still remember exactly what it felt like walking into my first robotics club meeting freshman year. I was nervous, having never touched robotics before, but excited to meet new people and dive into something completely unfamiliar. I couldn't be more grateful I joined. Between working with ROS 2 and learning how to stay adaptable when things inevitably broke, I picked up more technical knowledge than I ever expected. But more than anything, what I gained from this experience was the people. Everyone around me was passionate, sharp, and genuinely in love with the craft, and that energy was contagious. Their desire to build and lead rubbed off on me, and it's something I still carry with me today. They shaped how I found the area of CS I care about most, got me through some of the hardest classes in the curriculum, and along the way became some of my closest friends.",
+    description: "I joined Rice Robotics freshman year knowing almost nothing about robotics, and it quickly became one of the communities that shaped my time at Rice. It was where I first got to work with ROS 2, build software that had to interact with a much larger system, and learn the inevitable cycle of building, breaking, debugging, and trying again. I especially loved working with simulations, where I could build an entire world in code and watch the robot navigate and react to it. It opened my eyes to a completely different kind of software development, where what I built could interact with an environment rather than just live on a screen. Being surrounded by people who were constantly building and excited to share what they knew also pushed me to explore parts of computer science I probably never would have found on my own. Robotics helped me discover the kind of technical problems I love working on, gave me people to turn to through some of my hardest classes, and ultimately became a huge part of my college experience. ",
 };
 
 const experienceItems: Entity[] = [
@@ -124,19 +121,19 @@ const suits2026Narrative: NarrativeData = {
     title: "PR Intelligence Platform",
     time: "NASA SUITS 2026",
     image: "/pages/projects/suits2026/suits2026_0.jpg",
-    caption: "Moments before our first test night at the Johsnon Space Center!",
+    caption: "Moments before our first test night at the Johnson Space Center!",
     description:
-        "Developed for the NASA SUITS 2026 Challenge, our goal was to create an autonomous pressurized rover control interface to help astronauts navigate the lunar south pole and find a missing Lunar Terrain Vehicle (LTV). I ended up wearing a lot of hats: I owned the system architecture, shaped user workflows with our HF team, led project management, and took technical ownership of the autonomous navigation system. Technically, this project stretched me. I fine-tuned a YOLO model from scratch, built a streaming service, and architected a system that could handle multiple intensive AI processes and concurrent control systems at once. But the hardest lessons were about leadership. I was in charge of over 20 people, each with their own background and ideas about how things should get done. This project pushed me to lead without always having the answers, to trust others in their domains, and to communicate constantly so we stayed aligned throughout the year.",
+        "Developed for the NASA SUITS 2026 Challenge, our goal was to create an autonomous pressurized rover control interface to help astronauts navigate the lunar south pole and find a missing Lunar Terrain Vehicle (LTV). I ended up wearing a lot of hats for this project: I owned the system architecture, shaped user workflows with our HF team, led project management, and took technical ownership of the autonomous navigation system. It became one of those projects where I got to explore almost every part of building a complex system. I fine-tuned a YOLO model, built a streaming service, and architected a platform that could run multiple AI processes alongside concurrent rover control systems. At the same time, leading a team of over 20 people gave me a completely new appreciation for project management, from setting priorities and coordinating across subteams to making sure all of our work actually came together on schedule. More than anything, I loved watching all of those pieces come together into something we built as a team.",
 };
 
 const suits2026Media: MediaItem[] = [
     {
         image: "/pages/projects/suits2026/auto_nav_demo.mp4",
-        caption: "Navigation Screen: A display that let's the pilot control the rover and engage autonomous navigation.",
+        caption: "Navigation Screen: A display that lets the pilot control the rover and engage autonomous navigation.",
     },
     {
         image: "/pages/projects/suits2026/telemetry_demo.mp4",
-        caption: "Telemetry Screen: An intutitive dashboard that highlights and alerts important health data.",
+        caption: "Telemetry Screen: An intuitive dashboard that highlights and alerts important health data.",
     },
     {
         image: "/pages/projects/suits2026/ltv_search_demo.mp4",
@@ -156,17 +153,17 @@ const suits2025Narrative: NarrativeData = {
     time: "NASA SUITS 2025",
     image: "/pages/projects/suits2025/suits2025_0.jpg",
     caption: "The only way to beat Murphy's law is ... redundancy!",
-    description: "For the NASA SUITS 2025 Challenge, we developed an augmented reality interface to help astronauts perform extravehicular activities at the lunar south pole. This was my first time developing for the HoloLens 2, and AR as a platform in general. It was interesting to rethink how I approached interface design when moving from a 2D system to something spatial, and it taught me a lot about UI design and how it can be used to reduce cognitive load rather than add to it. For this project, I was the lead developer, owning both the high-performance server for streaming live telemetry data and the geological sampling notebook. Our project was selected as top 5 in the nation, and getting to test it at Johnson Space Center, get feedback directly from NASA engineers, and meet other students tackling the same problem in completely different ways was one of the highlights of the whole experience.",
+    description: "For the NASA SUITS 2025 Challenge, we developed an augmented reality interface to help astronauts perform extravehicular activities at the lunar south pole. This was my first time developing for the HoloLens 2, or for AR in general, and it completely changed how I thought about interface design. Moving from a 2D screen into a spatial environment taught me to think much more intentionally about how software could reduce cognitive load rather than add to it. As lead developer, I built the high-performance server that streamed live telemetry to the interface and developed the geological sampling notebook used during EVA operations. Our project was ultimately selected as a top-five finalist in the nation, and getting to test it at Johnson Space Center, hear directly from NASA engineers, and meet other teams approaching the same problem in completely different ways was one of my favorite experiences from the project. ",
 };
 
 const suits2025Media: MediaItem[] = [
     {
         image: "/pages/projects/suits2025/suits_2025_geo.mp4",
-        caption: "A virtual notebook connected to the XRF scanner to help with geological sampling.",
+        caption: "A virtual geological sampling notebook with AI-powered analysis.",
     },
     {
         image: "/pages/projects/suits2025/suits2025_ingegg_demo.mp4",
-        caption: "Procedures to assist with ingress and egress.",
+        caption: "A UIA digital twin to assist with ingress and egress procedures.",
     },
     {
         image: "/pages/projects/suits2025/16.jpg",
@@ -186,8 +183,8 @@ const pongAgentNarrative: NarrativeData = {
     title: "RL Pong Agent",
     time: "Psych 203 Final Project",
     image: "/pages/projects/pong/pong_late.loop.mp4",
-    caption: "I felt like a proud dad when I saw my agent score its first point.",
-    description: "This is a project I wish I'd finished sooner. It all started freshman year, when I first met with a professor about my interest in AI and its use in transportation systems. He recommended I read Playing Atari with Deep Reinforcement Learning, highlighting the similarities between using AI to beat racing games and modern day autonomous transportation systems. I remember being so confused the first time I read the article, getting lost in all of the statistical and computational theory. It took until sophomore year for me to actually sit down and build it out, when Psych 203, Intro to Cognitive Science, gave me the perfect excuse with a final project that asked us to connect core concepts from the class to something of our own. I used cloud computing for training and got my first real hands-on experience working with environment systems, finally turning what I'd only read about into something I'd built myself. Then I pushed it further, overlaying attention heat maps from the AI system against our own brains to see how each one directs its focus.",
+    caption: "7 hours later, the agent (green) finally learned how to play pong!",
+    description: "This project actually started long before I wrote any code. Freshman year, I met with a professor to talk about my interest in AI and transportation, and he pointed me toward Playing Atari with Deep Reinforcement Learning. The idea of teaching an AI to navigate a game environment, and how that could translate to autonomous systems in the real world, stuck with me. A year later, Psych 203 gave me the perfect excuse to finally build it myself. I trained a deep reinforcement learning agent using cloud computing, getting my first hands-on experience with environment systems and turning something I had only read about into something I could actually experiment with. My favorite part came when I connected it back to cognitive science, overlaying attention heat maps from the model against our own visual attention to explore how humans and AI focus on the same environment differently.",
 };
 
 const pongAgentMedia: MediaItem[] = [
@@ -197,24 +194,25 @@ const pongAgentMedia: MediaItem[] = [
     },
     {
         image: "/pages/projects/pong/pong_reward.png",
-        caption: "It was cool learning and compare RL's optimization of reward to loss in traditional ML",
+        caption: "It was cool learning how RL optimizes rewards instead of minimizing loss like in traditional ML.",
     },
     {
         image: "/pages/projects/pong/saliency_grid.png",
-        caption: "Saliency grid highlighting the CNN's 'attention'",
+        caption: "Saliency grid highlighting the CNN's 'attention' while playing pong.",
     },
 ];
 
 const pongAgentLinks: ProjectLink[] = [
-    { label: "Github", href: "#" },
+    { label: "Github", href: "https://github.com/CamH123/RL-Pong-DQN" },
+    { label: "Reference Paper", href: "https://arxiv.org/abs/1312.5602" },
 ];
 
 const roverSimulatorNarrative: NarrativeData = {
     title: "Rover Simulator",
     time: "Rice Robotics - University Rover Challenge",
     image: "/pages/projects/robotics/robotics_sim_demo.mp4",
-    caption: "It took a lot of finetuning to get the rover to drive like a real rover, but it was worth it.",
-    description: "This project completely changed how I think about robotics. I came in thinking mostly about individual algorithms, but quickly learned how much complexity comes from getting perception, controls, autonomy, simulation, and the physical robot to actually work together. Building the rover simulation threw me into robot modeling, physics engines, and more ROS headaches than I care to remember. I bounced between Gazebo, PyBullet, and eventually Genesis, constantly adapting as our needs changed. Along the way, the simulation became more than just a development environment: it helped us build and test our control and autonomous navigation algorithms while giving the mechanical team a way to test CAD designs before physically building them. More than anything, I came away understanding robotics as a systems problem, where every piece is only as useful as its ability to work with the rest.",
+    caption: "Turns out making a virtual rover drive like a real one takes a lot of fine-tuning",
+    description: "What started as a way to test our rover in simulation quickly became a tool for the entire team. I built a virtual rover and environment where we could develop control systems, experiment with autonomous navigation, and iterate without needing the physical rover every step of the way. I loved recreating the rover in code, from modeling its movement and sensors to building environments where we could test how it responded. Along the way, I explored Gazebo, PyBullet, and eventually Genesis as the simulation grew in scope. What I came to appreciate most was how important simulation was for integration, giving us a shared space to bring together controls, autonomy, perception, and mechanical designs. Seeing all of those pieces come together as one system gave me a much better understanding of how complex robotics systems are built and made simulation and integration some of my favorite parts of robotics. ",
 };
 
 // const roverSimulatorMedia: MediaItem[] = [
@@ -241,7 +239,7 @@ const sspNarrative: NarrativeData = {
     time: "Summer Science Program 2023",
     image: "/pages/projects/ssp2023/ssp_vid.mp4",
     caption: "10 Million Year Orbital Simulation of NEA 1998 RO4",
-    description: "In high school, I couldn't decide whether I wanted to study computer science or astrophysics, so the Summer Science Program felt like the perfect intersection of both. Over the summer, I conducted computational astrophysics research to track and model a near-Earth asteroid, writing code to analyze real observational data and build the models and calculations we needed to understand its orbit. It was my first time seeing how code could turn messy real-world data into something meaningful, and that idea has stuck with me ever since. Just as importantly, being surrounded by people who were incredibly curious and ambitious pushed me to think bigger about what I could build and accomplish. Looking back, SSP shaped a lot of what I love about CS today: using computation and real-world data to understand problems that extend far beyond the computer itself.",
+    description: "In high school, I couldn't decide whether I was more interested in computer science or astrophysics, and SSP gave me the chance to explore both at once. Over the summer, my team conducted computational astrophysics research on a near-Earth asteroid, using real observational data to calculate and model its orbit. It was my first experience using code as a tool for scientific research, and I loved being able to turn observations from a telescope into something we could analyze, model, and actually learn from. But SSP was just as much about the people as the research. Spending a summer surrounded by students who were constantly asking questions, sharing ideas, and getting excited about what they were working on pushed me to be more curious and ambitious myself. I left with a much bigger sense of what I could do with computer science and, more importantly, a desire to keep exploring. ",
 };
 
 // const sspMedia: MediaItem[] = [
@@ -289,7 +287,7 @@ const projectItems: Entity[] = [
 const projectItemsContinued: Entity[] = [
     {
         title: "Reinforcement Learning Pong Agent",
-        subtitle: "Pysch 203 Final Project",
+        subtitle: "Psych 203 Final Project",
         image: "/pages/projects/pong/pong_idx.mp4",
         detailPages: [
             (pageNumber) => <Narrative key="pong-agent-narrative" pageNumber={pageNumber} data={pongAgentNarrative} />,

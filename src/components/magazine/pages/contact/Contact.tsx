@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { PageProps } from "../types";
 
@@ -71,11 +70,15 @@ export default function Contact({ pageNumber }: PageProps) {
                     <div className="text-right">
                         <p className="text-[2.3cqw] uppercase tracking-wide text-mag-black/60 leading-none">Based In</p>
                         <p className="mt-[1cqw] text-[3.1cqw] leading-none">Chicago, IL &amp; Houston, TX</p>
-                        <p className="mt-[0.6cqw] text-[3.1cqw] leading-none">my time: {centralTime ?? "--:--"} (CST)</p>
+                        <p className="mt-[0.6cqw] text-[3.1cqw] leading-none">my time: {centralTime ?? "--:--"} (CT)</p>
                     </div>
                 </div>
 
-                <div className="mt-auto ml-[2cqw] flex flex-col gap-[3cqw]">
+                <div className="mt-auto text-right mb-[3cqw]">
+                    <p className="text-[3.1cqw] leading-none">feel free to reach out!</p>
+                </div>
+
+                {/* <div className="mt-auto ml-[2cqw] flex flex-col gap-[3cqw]">
 
                     <div className="flex items-end gap-[3cqw]">
                         <div className="relative aspect-2/3 w-[20%]">
@@ -89,7 +92,7 @@ export default function Contact({ pageNumber }: PageProps) {
                         </div>
                         <p className="ml-[2cqw] text-[3.1cqw] leading-snug">great book, would recommend :)</p>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className={`absolute bottom-[3cqw] ${pageNumber % 2 === 1 ? "left-[3cqw]" : "right-[3cqw]"}`}>

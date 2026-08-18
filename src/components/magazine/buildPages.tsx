@@ -102,7 +102,7 @@ export function buildPages(chapters: Chapter[]): { pages: ReactNode[]; sections:
     // sections.bonus = { start: bonusIndex, end: pages.length - 1 };
 
     // 6. Add Back Cover
-    pages.push(<BackCover key="back-cover" pageNumber={pageNumber} />);
+    pages.push(<BackCover key="back-cover" />);
     pageNumber++;
     // sections.bonus = { start: bonusIndex, end: pages.length - 1 };
 

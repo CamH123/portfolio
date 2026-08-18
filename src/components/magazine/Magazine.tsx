@@ -10,6 +10,9 @@ const PAGE_ASPECT_RATIO = 1 / 1.25
 const HEIGHT_SCALE = 1 
 const WIDTH_SCALE = 0.8 
 
+type FlipEvent = {
+    data: number
+}
 
 function computeBookSize(containerWidth: number, containerHeight: number, isMobile: boolean) {
     const availableWidth = containerWidth * (isMobile ? 1 : WIDTH_SCALE)
@@ -70,7 +73,7 @@ export default function Magazine() {
 
     // Remounting on resize (via key) resets to startPage, so track the current
     // page to carry it across remounts instead of jumping back to the cover.
-    const handleFlip = useCallback((e: any) => {
+    const handleFlip = useCallback((e: FlipEvent) => {
         setCurrentPage(e.data)
     }, [setCurrentPage])
 

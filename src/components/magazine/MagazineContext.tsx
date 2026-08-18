@@ -5,8 +5,16 @@ import { sections } from "./content"
 
 const MOBILE_BREAKPOINT = "(max-width: 39.99rem)"
 
+export type FlipBookHandle = {
+    pageFlip: () => {
+        flip: (page: number) => void
+        flipNext: () => void
+        flipPrev: () => void
+    }
+}
+
 type MagazineContextValue = {
-    bookRef: React.RefObject<any>
+    bookRef: React.RefObject<FlipBookHandle | null>
     currentPage: number
     setCurrentPage: (page: number) => void
     flipToPage: (page: number) => void
@@ -17,7 +25,7 @@ type MagazineContextValue = {
 const MagazineContext = createContext<MagazineContextValue | null>(null)
 
 export function MagazineProvider({ children }: { children: ReactNode }) {
-    const bookRef = useRef<any>(null)
+    const bookRef = useRef<FlipBookHandle | null>(null)
     const [currentPage, setCurrentPage] = useState(0)
     const [isSinglePage, setIsSinglePage] = useState(false)
 

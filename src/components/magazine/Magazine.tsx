@@ -14,6 +14,10 @@ type FlipEvent = {
     data: number
 }
 
+type FlipStateEvent = {
+    data: "user_fold" | "fold_corner" | "flipping" | "read"
+}
+
 function computeBookSize(containerWidth: number, containerHeight: number, isMobile: boolean) {
     const availableWidth = containerWidth * (isMobile ? 1 : WIDTH_SCALE)
     const availableHeight = containerHeight * HEIGHT_SCALE
@@ -31,7 +35,7 @@ function computeBookSize(containerWidth: number, containerHeight: number, isMobi
 
 export default function Magazine() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { bookRef, currentPage, setCurrentPage, isSinglePage } = useMagazine()
+    const { bookRef, currentPage, setCurrentPage, handleFlipState, isSinglePage } = useMagazine()
     const [size, setSize] = useState<{ width: number; height: number } | null>(null)
 
     useEffect(() => {
@@ -83,7 +87,7 @@ export default function Magazine() {
                 <HTMLFlipBook
                     key={`${size.width}x${size.height}-${isSinglePage ? "portrait" : "landscape"}`}
                     ref={bookRef}
-                    className={isSinglePage ? "magazine-book--portrait" : ""}
+                    className={`magazine-book-entrance${isSinglePage ? " magazine-book--portrait" : ""}`}
                     style={{}}
                     width={size.width}
                     height={size.height}
@@ -108,6 +112,7 @@ export default function Magazine() {
                     disableFlipByClick={false}
                     renderOnlyPageLengthChange
                     onFlip={handleFlip}
+                    onChangeState={(e: FlipStateEvent) => handleFlipState(e.data)}
                 >
                     {pages.map((page, i) => (
                         <PageFrame key={i} side={i % 2 === 0 ? "right" : "left"}>

@@ -6,7 +6,7 @@ import { MagazineProvider } from "../components/magazine/MagazineContext";
 export default function Home() {
 
 	return (
-		<div className="relative h-dvh w-full overflow-x-hidden sm:h-screen sm:overflow-hidden">
+		<div className="relative h-dvh w-full overflow-hidden sm:h-screen">
 			<Image src="/desk/wood.jpg" alt="" fill sizes="100vw" className="object-cover" priority />
 
 			<MagazineProvider>

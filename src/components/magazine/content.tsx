@@ -235,7 +235,7 @@ const roverSimulatorNarrative: NarrativeData = {
 // ];
 
 const sspNarrative: NarrativeData = {
-    title: "Near Earth Asteroid Model",
+    title: "NEA Orbit Modeling",
     time: "Summer Science Program 2023",
     image: "/pages/projects/ssp2023/ssp_vid.mp4",
     caption: "10 Million Year Orbital Simulation of NEA 1998 RO4",
@@ -301,7 +301,7 @@ const projectItemsContinued: Entity[] = [
         detailPages: [(pageNumber) => <Narrative key="rover-simulator-narrative" pageNumber={pageNumber} data={roverSimulatorNarrative} />],
     },
     {
-        title: "Near Earth Asteroid Model",
+        title: "Near Earth Asteroid Orbit Determination",
         subtitle: "Summer Science Program 2023",
         image: "/pages/projects/ssp2023/ssp_vid.mp4",
         detailPages: [(pageNumber) => <Narrative key="asteroid-model-narrative" pageNumber={pageNumber} data={sspNarrative} />],

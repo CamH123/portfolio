@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, Re
 import { sections } from "./content"
 
 const MOBILE_BREAKPOINT = "(max-width: 39.99rem)"
+type FlipState = "user_fold" | "fold_corner" | "flipping" | "read"
 
 export type FlipBookHandle = {
     pageFlip: () => {
@@ -18,6 +19,7 @@ type MagazineContextValue = {
     currentPage: number
     setCurrentPage: (page: number) => void
     flipToPage: (page: number) => void
+    handleFlipState: (state: FlipState) => void
     isSinglePage: boolean
     sections: typeof sections
 }
@@ -26,6 +28,7 @@ const MagazineContext = createContext<MagazineContextValue | null>(null)
 
 export function MagazineProvider({ children }: { children: ReactNode }) {
     const bookRef = useRef<FlipBookHandle | null>(null)
+    const isFlippingRef = useRef(false)
     const [currentPage, setCurrentPage] = useState(0)
     const [isSinglePage, setIsSinglePage] = useState(false)
 
@@ -39,12 +42,18 @@ export function MagazineProvider({ children }: { children: ReactNode }) {
     }, [])
 
     const flipToPage = useCallback((page: number) => {
+        if (isFlippingRef.current) return
+
         setCurrentPage(page)
         bookRef.current?.pageFlip().flip(page)
     }, [])
 
+    const handleFlipState = useCallback((state: FlipState) => {
+        isFlippingRef.current = state !== "read"
+    }, [])
+
     return (
-        <MagazineContext value={{ bookRef, currentPage, setCurrentPage, flipToPage, isSinglePage, sections }}>
+        <MagazineContext value={{ bookRef, currentPage, setCurrentPage, flipToPage, handleFlipState, isSinglePage, sections }}>
             {children}
         </MagazineContext>
     )

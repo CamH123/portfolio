@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react"
 import HTMLFlipBook from "react-pageflip"
 import PageFrame from "./PageFrame"
 import { pages } from "./content"
@@ -35,7 +35,15 @@ function computeBookSize(containerWidth: number, containerHeight: number, isMobi
 
 export default function Magazine() {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { bookRef, currentPage, setCurrentPage, handleFlipState, isSinglePage } = useMagazine()
+    const {
+        bookRef,
+        currentPage,
+        flipNext,
+        flipPrev,
+        handlePageFlip,
+        handleFlipState,
+        isSinglePage,
+    } = useMagazine()
     const [size, setSize] = useState<{ width: number; height: number } | null>(null)
 
     useEffect(() => {
@@ -65,24 +73,47 @@ export default function Magazine() {
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
             if (e.key === "ArrowLeft") {
-                bookRef.current?.pageFlip().flipPrev()
+                flipPrev()
             } else if (e.key === "ArrowRight") {
-                bookRef.current?.pageFlip().flipNext()
+                flipNext()
             }
         }
 
         window.addEventListener("keydown", handleKeyDown)
         return () => window.removeEventListener("keydown", handleKeyDown)
-    }, [bookRef])
+    }, [flipNext, flipPrev])
 
     // Remounting on resize (via key) resets to startPage, so track the current
     // page to carry it across remounts instead of jumping back to the cover.
     const handleFlip = useCallback((e: FlipEvent) => {
-        setCurrentPage(e.data)
-    }, [setCurrentPage])
+        handlePageFlip(e.data)
+    }, [handlePageFlip])
+
+    const handleCoverMouseDown = useCallback((e: ReactMouseEvent<HTMLDivElement>) => {
+        if (currentPage !== 0 || isSinglePage || !size || e.button !== 0) return
+
+        const container = containerRef.current
+        if (!container) return
+
+        const { left, top, width, height } = container.getBoundingClientRect()
+        const bookWidth = size.width * 2
+        const bookLeft = left + (width - bookWidth) / 2
+        const bookTop = top + (height - size.height) / 2
+        const isWithinBook = e.clientX >= bookLeft && e.clientX <= bookLeft + bookWidth
+            && e.clientY >= bookTop && e.clientY <= bookTop + size.height
+
+        if (!isWithinBook) return
+
+        e.preventDefault()
+        e.stopPropagation()
+
+        if (e.clientX >= bookLeft + size.width) {
+            flipNext()
+        }
+    }, [currentPage, flipNext, isSinglePage, size])
 
     return (
-        <div ref={containerRef} className="flex h-full w-full items-center justify-center p-2 sm:p-4">
+        <div ref={containerRef} onMouseDownCapture={handleCoverMouseDown} className="flex h-full w-full items-center justify-center p-2 sm:p-4">
             {size && (
                 <HTMLFlipBook
                     key={`${size.width}x${size.height}-${isSinglePage ? "portrait" : "landscape"}`}

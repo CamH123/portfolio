@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "../components/header/Header";
 import Magazine from "../components/magazine/Magazine";
 import { MagazineProvider } from "../components/magazine/MagazineContext";
+import StickyNote from "../components/magazine/StickyNote";
 
 export default function Home() {
 
@@ -15,7 +16,8 @@ export default function Home() {
 						<Header />
 					</div>
 
-					<div className="flex min-h-0 flex-1 items-center justify-center sm:mx-auto sm:w-11/12">
+					<div className="relative flex-1 w-11/12 mx-auto flex items-center justify-center">
+						<StickyNote />
 						<Magazine />
 					</div>
 				</div>

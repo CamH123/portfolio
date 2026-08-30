@@ -21,6 +21,10 @@ type MagazineContextValue = {
     flipToPage: (page: number) => void
     handleFlipState: (state: FlipState) => void
     isSinglePage: boolean
+    flipNext: () => void
+    flipPrev: () => void
+    handlePageFlip: (page: number) => void
+    isCoverNoteVisible: boolean
     sections: typeof sections
 }
 
@@ -31,6 +35,8 @@ export function MagazineProvider({ children }: { children: ReactNode }) {
     const isFlippingRef = useRef(false)
     const [currentPage, setCurrentPage] = useState(0)
     const [isSinglePage, setIsSinglePage] = useState(false)
+    const [isCoverNoteVisible, setIsCoverNoteVisible] = useState(true)
+    const coverExitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useEffect(() => {
         const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT)
@@ -41,19 +47,80 @@ export function MagazineProvider({ children }: { children: ReactNode }) {
         return () => mediaQuery.removeEventListener("change", updateViewport)
     }, [])
 
+    useEffect(() => {
+        return () => {
+            if (coverExitTimeoutRef.current) clearTimeout(coverExitTimeoutRef.current)
+        }
+    }, [])
+
     const flipToPage = useCallback((page: number) => {
         if (isFlippingRef.current) return
 
+        const flip = () => bookRef.current?.pageFlip().flip(page)
+
+        if (currentPage === 0 && page !== 0) {
+            if (coverExitTimeoutRef.current) return
+
+            setIsCoverNoteVisible(false)
+            coverExitTimeoutRef.current = setTimeout(() => {
+                coverExitTimeoutRef.current = null
+                flip()
+            }, 200)
+            return
+        }
+
         setCurrentPage(page)
-        bookRef.current?.pageFlip().flip(page)
-    }, [])
+        flip()
+    }, [currentPage])
 
     const handleFlipState = useCallback((state: FlipState) => {
         isFlippingRef.current = state !== "read"
     }, [])
 
+    const flipNext = useCallback(() => {
+        if (currentPage === 0) {
+            flipToPage(1)
+            return
+        }
+
+        bookRef.current?.pageFlip().flipNext()
+    }, [currentPage, flipToPage])
+
+    const flipPrev = useCallback(() => {
+        bookRef.current?.pageFlip().flipPrev()
+    }, [])
+
+    const handlePageFlip = useCallback((page: number) => {
+        const isReturningToCover = page === 0 && currentPage !== 0
+
+        setCurrentPage(page)
+
+        if (isReturningToCover) {
+            setIsCoverNoteVisible(false)
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => setIsCoverNoteVisible(true))
+            })
+        } else if (page !== 0) {
+            setIsCoverNoteVisible(false)
+        } else {
+            setIsCoverNoteVisible(true)
+        }
+    }, [currentPage])
+
     return (
-        <MagazineContext value={{ bookRef, currentPage, setCurrentPage, flipToPage, handleFlipState, isSinglePage, sections }}>
+        <MagazineContext value={{
+            bookRef,
+            currentPage,
+            setCurrentPage,
+            flipToPage,
+            handleFlipState,
+            isSinglePage,
+            flipNext,
+            flipPrev,
+            handlePageFlip,
+            isCoverNoteVisible,
+            sections,
+        }}>
             {children}
         </MagazineContext>
     )

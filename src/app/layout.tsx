@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Libertinus_Serif } from "next/font/google";
+import { Chelsea_Market, Libertinus_Serif } from "next/font/google";
 import "./globals.css";
 
 const libertinusSerif = Libertinus_Serif({
   variable: "--font-pt-serif",
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+
+const chelseaMarket = Chelsea_Market({
+  variable: "--font-chelsea-market",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${libertinusSerif.variable} h-full antialiased`}
+      className={`${libertinusSerif.variable} ${chelseaMarket.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

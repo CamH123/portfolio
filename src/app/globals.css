@@ -13,6 +13,7 @@
 
   /* Custom Magazine Serif Font */
   --font-sans: var(--font-pt-serif);
+  --font-sticky-note: var(--font-chelsea-market);
 }
 
 @layer base {
@@ -90,6 +91,10 @@
   animation: magazine-book-entrance 450ms ease-out 100ms both;
 }
 
+.magazine-note-entrance {
+  animation: magazine-book-entrance 450ms ease-out 100ms backwards;
+}
+
 @keyframes magazine-book-entrance {
   from {
     opacity: 0;
@@ -104,6 +109,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .magazine-book-entrance {
+    animation: none;
+  }
+
+  .magazine-note-entrance {
     animation: none;
   }
 }

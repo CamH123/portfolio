@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Header from "../components/header/Header";
+import CardHolder from "../components/business-card/CardHolder";
 import Magazine from "../components/magazine/Magazine";
 import { MagazineProvider } from "../components/magazine/MagazineContext";
-import StickyNote from "../components/magazine/StickyNote";
+import StickyNote from "../components/StickyNote";
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
 					</div>
 				</div>
 			</MagazineProvider>
+			<CardHolder />
 		</div>
   );
 }

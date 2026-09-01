@@ -10,6 +10,8 @@
   --color-mag-amber: #f6aa1c;
   --color-mag-cerulean: #00A8D1;
   --color-mag-tan: #d8c3a5;
+  --color-mag-brown: #5c4213;
+  --color-mag-eggshell: #F0EAD6;
 
   /* Custom Magazine Serif Font */
   --font-sans: var(--font-pt-serif);
@@ -95,6 +97,16 @@
   animation: magazine-book-entrance 450ms ease-out 100ms backwards;
 }
 
+.business-card-trigger {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+
+.business-card-trigger:hover,
+.business-card-trigger:focus-visible {
+  transform: translateX(17%);
+}
+
 @keyframes magazine-book-entrance {
   from {
     opacity: 0;
@@ -114,6 +126,10 @@
 
   .magazine-note-entrance {
     animation: none;
+  }
+
+  .business-card-trigger {
+    transition: none;
   }
 }
 

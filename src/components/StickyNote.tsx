@@ -1,6 +1,6 @@
 "use client"
 
-import { useMagazine } from "./MagazineContext"
+import { useMagazine } from "./magazine/MagazineContext"
 
 export default function StickyNote() {
     const { isCoverNoteVisible } = useMagazine()

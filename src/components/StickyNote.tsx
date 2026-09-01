@@ -23,8 +23,9 @@ export default function StickyNote() {
                 <p>
                     In a hurry?
                     <br />
-                    Grab my business card! ↓
+                    Grab my business card!
                     <br />
+                    ←
                 </p>
             </div>
         </aside>

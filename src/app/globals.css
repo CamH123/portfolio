@@ -97,9 +97,31 @@
   animation: magazine-book-entrance 450ms ease-out 100ms backwards;
 }
 
+.business-card-holder-entrance {
+  animation: magazine-book-entrance 450ms ease-out 100ms both;
+}
+
+.business-card-card-entrance {
+  animation: business-card-settle 850ms ease-in-out 550ms both;
+}
+
 .business-card-trigger {
   transform: translateX(0);
   transition: transform 200ms ease-out;
+}
+
+.business-card-holder {
+  background-image: url("/desk/leather.jpg");
+  background-position: center;
+  background-size: cover;
+  -webkit-mask-image: radial-gradient(ellipse 1.4vw 2vw at 100% 50%, transparent 99%, #000 100%);
+  mask-image: radial-gradient(ellipse 1.4vw 2vw at 100% 50%, transparent 99%, #000 100%);
+}
+
+.business-card-paper {
+  background-image: url("/desk/paper.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .business-card-trigger:hover,
@@ -119,12 +141,39 @@
   }
 }
 
+@keyframes business-card-settle {
+  from {
+    pointer-events: none;
+    transform: translateX(0);
+  }
+
+  35% {
+    pointer-events: none;
+    transform: translateX(6%);
+  }
+
+  70% {
+    pointer-events: none;
+    transform: translateX(-4%);
+  }
+
+  to {
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .magazine-book-entrance {
     animation: none;
   }
 
   .magazine-note-entrance {
+    animation: none;
+  }
+
+  .business-card-holder-entrance,
+  .business-card-card-entrance {
     animation: none;
   }
 

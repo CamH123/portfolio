@@ -14,7 +14,7 @@ export default function CardHolder() {
 
     return (
         <>
-            <div className="business-card-holder-entrance absolute bottom-[13%] left-0 z-20 hidden h-[30%] w-[5%] lg:block">
+            <div className="business-card-holder-entrance absolute bottom-[13%] left-0 z-20 hidden h-[30%] w-[5%] sm:block">
                 <div className="business-card-holder pointer-events-none absolute inset-y-0 left-0 z-10 w-[45%] rounded-r-xl shadow-2xl" />
 
                 <div className="business-card-card-entrance absolute inset-0">
